@@ -32,23 +32,16 @@ const Header = () => {
       <div className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-red-600 rounded-sm flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">CIC</span>
-                </div>
-                <div className="ml-2">
-                  <div className="text-red-600 font-bold text-sm">CIC GROUP</div>
-                </div>
-              </div>
+            {/* Logo - Furthest Left */}
+            <div className="flex-shrink-0 flex items-center m-0 p-0">
+              <img src="https://cdn.brandfetch.io/idlMz2AeCB/w/554/h/448/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1751871656810" alt="Logo" className="h-10 w-auto m-0 p-0" />
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8">
+            <nav className="hidden lg:flex flex-1 justify-center space-x-4">
               {primaryNavItems.map((item) => (
                 <div key={item.name} className="relative group">
-                  <button className="text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center">
+                  <button className="text-gray-700 hover:text-red-600 px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center">
                     {item.name}
                     {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
                   </button>
@@ -59,18 +52,12 @@ const Header = () => {
             {/* Right Side Items */}
             <div className="flex items-center space-x-4">
               {/* Social Icons */}
-              <div className="hidden md:flex items-center space-x-2">
-                <Twitter className="h-5 w-5 text-gray-500 hover:text-blue-500 transition-colors cursor-pointer" />
-                <Instagram className="h-5 w-5 text-gray-500 hover:text-pink-500 transition-colors cursor-pointer" />
-                <Linkedin className="h-5 w-5 text-gray-500 hover:text-blue-600 transition-colors cursor-pointer" />
+              <div className="hidden md:flex items-center space-x-5">
+                <Twitter className="h-5 w-5 text-gray-500 hover:text-blue-500 transition-colors cursor-pointer mr-[4px]" />
+                <Instagram className="h-5 w-5 text-gray-500 hover:text-pink-500 transition-colors cursor-pointer mr-[4px]" />
+                <Linkedin className="h-5 w-5 text-gray-500 hover:text-blue-600 transition-colors cursor-pointer mr-[4px]" />
                 <Youtube className="h-5 w-5 text-gray-500 hover:text-red-600 transition-colors cursor-pointer" />
               </div>
-
-              {/* Language/Globe Icon */}
-              <div className="hidden md:flex items-center">
-                <Globe className="h-5 w-5 text-gray-500 hover:text-gray-700 transition-colors cursor-pointer" />
-              </div>
-
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -85,7 +72,7 @@ const Header = () => {
 
       {/* Secondary Navigation */}
       <div className="bg-yellow-500">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-15xl mx-auto px-4 sm:px-4 lg:px-4">
           <div className="flex items-center justify-between h-12">
             {/* Search */}
             <div className="flex items-center">
@@ -94,13 +81,13 @@ const Header = () => {
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="pl-10 pr-4 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="pl-8 pr-4 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
               </div>
             </div>
 
             {/* Secondary Nav Items */}
-            <nav className="hidden lg:flex items-center space-x-6">
+            <nav className="hidden lg:flex items-center space-x-4">
               {secondaryNavItems.map((item) => (
                 <div key={item.name} className="relative group">
                   <button className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
