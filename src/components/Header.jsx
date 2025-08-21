@@ -32,7 +32,7 @@ const Header = () => {
       <div className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo - Furthest Left */}
+            {/* Logo  */}
             <div className="flex-shrink-0 flex items-center m-0 p-0">
               <img src="https://cdn.brandfetch.io/idlMz2AeCB/w/554/h/448/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1751871656810" alt="Logo" className="h-10 w-auto m-0 p-0" />
             </div>
