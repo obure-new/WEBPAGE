@@ -127,7 +127,7 @@ function GetAQuoteSection() {
        {/* Bottom spacing */}
         <div className="mt-12 text-center">
           <p className="text-white/80 text-sm">
-            Click on any option above to get started with your personalized quot.
+           We are a world class provider of insurance and other financial services.
           </p>
         </div>
     </section>
