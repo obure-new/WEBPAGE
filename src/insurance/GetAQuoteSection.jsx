@@ -127,7 +127,7 @@ function GetAQuoteSection() {
        {/* Bottom spacing */}
         <div className="mt-12 text-center">
           <p className="text-white/80 text-sm">
-            Click on any option above to get started with your personalized quote
+            Click on any option above to get started with your personalized quot.
           </p>
         </div>
     </section>
