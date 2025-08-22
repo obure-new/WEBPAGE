@@ -38,26 +38,27 @@ function GetAQuoteSection() {
   };
 
   return (
-    <section className="py-16 bg-[#a51d2d] rounded-3xl mx-4 md:mx-24 mt-[-60px] relative z-20 shadow-lg">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center text-white mb-12">
-          <h3 className="text-lg font-medium mb-2 opacity-90">Get a Quote</h3>
-          <h2 className="text-4xl md:text-5xl font-bold">How can we help you?</h2>
-        </div>
+    <>
+      <section className="py-16 bg-[#a51d2d] rounded-3xl mx-4 md:mx-24 mt-[-60px] relative z-20 shadow-lg">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <div className="text-center text-white mb-12">
+            <h3 className="text-lg font-medium mb-2 opacity-90">Get a Quote</h3>
+            <h2 className="text-4xl md:text-5xl font-bold">How can we help you?</h2>
+          </div>
 
-        {/* Products Grid */}
-        <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
-          {products.map((product, index) => {
-            const Icon = product.icon;
-            return (
-              <div
-                key={product.id}
-                onClick={() => handleProductClick(product.id)}
+          {/* Products Grid */}
+          <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+            {products.map((product, index) => {
+              const Icon = product.icon;
+              return (
+                <div
+                  key={product.id}
+                  onClick={() => handleProductClick(product.id)}
                   className="bg-transparent border-2 border-white/30 rounded-2xl p-8 text-center hover:bg-yellow-400/90 transition-all duration-300 cursor-pointer group min-w-[200px] max-w-[240px] flex-1"
-              >
-                <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center group-hover:text-black">
-                  {index === 0 && (
+                >
+                  <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center group-hover:text-black">
+                    {index === 0 && (
                     // CIC Easy Bima
                     <svg className="w-16 h-16 text-white group-hover:text-black group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeWidth="1.5"/>
@@ -122,15 +123,17 @@ function GetAQuoteSection() {
             );
           })}
         </div>
-
       </div>
-       {/* Bottom spacing */}
-        <div className="mt-12 text-center">
-          <p className="text-white/80 text-sm">
-           We are a world class provider of insurance and other financial services.
-          </p>
-        </div>
     </section>
+    {/* Additional content */}
+    <div className="bg-white py-14">
+      <div className="max-w-5xl mx-auto px-1 text-center">
+  <p className="text-3xl text-[#a51d2d] max-w-2xl mx-auto">
+          We are a world class provider of insurance and other financial services.
+        </p>
+      </div>
+    </div>
+    </>
   );
 }
 

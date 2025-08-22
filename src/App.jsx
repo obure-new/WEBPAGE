@@ -1,7 +1,8 @@
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import GetAQuoteSection from "./insurance/GetAQuoteSection";
-import StatsSection from './home/StatsSection';
+import ProductGrid from './insurance/ProductGrid';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -10,7 +11,8 @@ function App() {
       <Header />
       <HeroSection />
       <GetAQuoteSection />
-      <StatsSection />
+      <ProductGrid />
+      <Footer />
     </div>
   );
 }

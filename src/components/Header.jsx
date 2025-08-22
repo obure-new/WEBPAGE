@@ -49,19 +49,19 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Right Side Items */}
+            {/* Right */}
             <div className="flex items-center space-x-4">
               {/* Social Icons */}
               <div className="hidden md:flex items-center space-x-5">
-                <Twitter className="h-5 w-5 text-gray-500 hover:text-blue-500 transition-colors cursor-pointer mr-[4px]" />
-                <Instagram className="h-5 w-5 text-gray-500 hover:text-pink-500 transition-colors cursor-pointer mr-[4px]" />
-                <Linkedin className="h-5 w-5 text-gray-500 hover:text-blue-600 transition-colors cursor-pointer mr-[4px]" />
-                <Youtube className="h-5 w-5 text-gray-500 hover:text-red-600 transition-colors cursor-pointer" />
+                <Twitter className="h-5 w-5 text-black-500 hover:text-[#a51d2d] transition-colors cursor-pointer mr-[4px]" />
+                <Instagram className="h-5 w-5 text-black-500 hover:text-[#a51d2d] transition-colors cursor-pointer mr-[4px]" />
+                <Linkedin className="h-5 w-5 text-black-500 hover:text-[#a51d2d] transition-colors cursor-pointer mr-[4px]" />
+                <Youtube className="h-5 w-5 text-black-500 hover:text-[#a51d2d] transition-colors cursor-pointer" />
               </div>
               {/* Mobile menu button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+                className="lg:hidden p-2 rounded-md text-black-400 hover:text-black-500 hover:bg-gray-100"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -102,11 +102,13 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Language Selector */}
+            {/* Country Selector */}
             <div className="hidden md:flex items-center space-x-2">
-              <select className="bg-transparent text-gray-800 text-sm font-medium focus:outline-none cursor-pointer">
-                <option>EN</option>
-                <option>SW</option>
+              <select className="bg-transparent text-[#a51d2d] text-sm font-medium focus:outline-none cursor-pointer">
+                <option>KE</option>
+                <option>SS</option>
+                <option>UG</option>
+                <option>MW</option>
               </select>
             </div>
           </div>

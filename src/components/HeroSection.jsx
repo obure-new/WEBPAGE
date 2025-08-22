@@ -7,7 +7,7 @@ const slides = [
     
   },
   {
-    image: "/images/carousel/slide1.jpeg",
+    image: "/images/carousel/slide5.jpg",
     title: "We are invested in your success",
     description: "Start your investement journey today.",
   },
@@ -21,7 +21,7 @@ const slides = [
     description: "Reinvent the art of living in nature.Get your hands on a prestigious plot of land located less than 30 minutes from Nairobi to Ushirka Gardens..",
   },
   {
-    image: "/images/carousel/slide2.jpg",
+    image: "/images/carousel/slide4.jpg",
     title: "Welcome to CIC Pharmacy <br /> Caring Beyond Prescriptions",
     description: "",
   },

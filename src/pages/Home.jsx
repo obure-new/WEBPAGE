@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
@@ -6,7 +7,8 @@ const Home = () => {
       <Header />
       <HeroSection />
       <GetAQuoteSection />
-      <StatsSection />
+      <ProductGrid />
+      <Footer />
     </div>
   )
 }
