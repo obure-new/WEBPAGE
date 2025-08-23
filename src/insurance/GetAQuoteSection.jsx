@@ -48,16 +48,16 @@ function GetAQuoteSection() {
           </div>
 
           {/* Products Grid */}
-          <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-2 max-w-6xl mx-auto">
             {products.map((product, index) => {
               const Icon = product.icon;
               return (
                 <div
                   key={product.id}
                   onClick={() => handleProductClick(product.id)}
-                  className="bg-transparent border-2 border-white/30 rounded-2xl p-8 text-center hover:bg-yellow-400/90 transition-all duration-300 cursor-pointer group min-w-[200px] max-w-[240px] flex-1"
+                  className="bg-transparent border-2 border-white/30 rounded-2xl p-6 text-center hover:bg-yellow-400/90 transition-all duration-300 cursor-pointer group flex-1 min-w-[140px] max-w-[180px]"
                 >
-                  <div className="w-20 h-20 mx-auto mb-6 flex items-center justify-center group-hover:text-black">
+                  <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center group-hover:text-black">
                     {index === 0 && (
                     // CIC Easy Bima
                     <svg className="w-16 h-16 text-white group-hover:text-black group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
