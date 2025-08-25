@@ -1,19 +1,22 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import GetAQuoteSection from "./insurance/GetAQuoteSection";
-import ProductGrid from './insurance/ProductGrid';
 import Footer from './components/Footer';
-
+import Home from './pages/Home';
+import Pharmacy from './pages/Pharmacy';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <HeroSection />
-      <GetAQuoteSection />
-      <ProductGrid />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pharmacy" element={<Pharmacy />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

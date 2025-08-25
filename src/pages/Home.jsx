@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/HeroSection';
-import GetAQuoteSection from '../components/GetAQuoteSection';
-import ProductGrid from '../components/ProductGrid';
+import GetAQuoteSection from '../insurance/GetAQuoteSection';
+import ProductGrid from '../insurance/ProductGrid';
 
 const Home = () => {
   return (

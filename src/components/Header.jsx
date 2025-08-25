@@ -1,10 +1,12 @@
 import { useState, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Search, ChevronDown, Menu, X, Twitter, Instagram, Linkedin, Youtube, Globe, Briefcase, Phone, Mail, MessageCircle } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const hoverTimeoutRef = useRef(null);
+  const location = useLocation();
 
   const primaryNavItems = [
     { name: 'CIC GROUP', href: '#' },
@@ -18,8 +20,8 @@ const Header = () => {
   ];
 
   const secondaryNavItems = [
-    { name: 'Home', href: '#', active: true },
-    { name: 'Pharmacy', href: '#' },
+    { name: 'Home', href: '/' },
+    { name: 'Pharmacy', href: '/pharmacy' },
     { name: 'Individual Solutions', href: '#', hasDropdown: true },
     { name: 'Business Solutions', href: '#', hasDropdown: true },
     { name: 'Corporate Solutions', href: '#', hasDropdown: true },
@@ -129,15 +131,28 @@ const Header = () => {
                       }
                     }}
                   >
-                    <button
-                      className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
-                        item.active
-                          ? 'text-white bg-black bg-opacity-20 rounded'
-                          : 'text-gray-800 hover:text-white hover:bg-black hover:bg-opacity-10 rounded'
-                      }`}
-                    >
-                      {item.name}
-                    </button>
+                    {item.hasDropdown || item.href === '#' ? (
+                      <button
+                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
+                          location.pathname === item.href
+                            ? 'text-white bg-black bg-opacity-20 rounded'
+                            : 'text-gray-800 hover:text-white hover:bg-black hover:bg-opacity-10 rounded'
+                        }`}
+                      >
+                        {item.name}
+                      </button>
+                    ) : (
+                      <Link
+                        to={item.href}
+                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
+                          location.pathname === item.href
+                            ? 'text-white bg-black bg-opacity-20 rounded'
+                            : 'text-gray-800 hover:text-white hover:bg-black hover:bg-opacity-10 rounded'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
 
                     {/* Individual Solutions Dropdown */}
                     {item.name === 'Individual Solutions' && activeDropdown === 'Individual Solutions' && (
@@ -426,11 +441,19 @@ const Header = () => {
               ))}
               <div className="border-t border-gray-200 pt-3">
                 {secondaryNavItems.map((item) => (
-                  <button key={item.name} className={`block px-3 py-2 text-base font-medium w-full text-left ${
-                    item.active ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-600'
-                  }`}>
-                    {item.name}
-                  </button>
+                  item.hasDropdown || item.href === '#' ? (
+                    <button key={item.name} className={`block px-3 py-2 text-base font-medium w-full text-left ${
+                      location.pathname === item.href ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-600'
+                    }`}>
+                      {item.name}
+                    </button>
+                  ) : (
+                    <Link key={item.name} to={item.href} className={`block px-3 py-2 text-base font-medium w-full text-left ${
+                      location.pathname === item.href ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-600'
+                    }`}>
+                      {item.name}
+                    </Link>
+                  )
                 ))}
               </div>
             </div>
