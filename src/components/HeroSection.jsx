@@ -46,22 +46,6 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleButtonClick = (link) => {
-    if (link.startsWith("http")) {
-      // External link
-      window.open(link, "_blank", "noopener noreferrer");
-    } else if (link.startsWith("/")) {
-      // Internal link - you can customize this behavior
-      // For now, we'll just log it or handle it as needed
-      console.log("Navigate to:", link);
-      // If you want to use React Router later, uncomment the line below:
-      // navigate(link);
-    } else {
-      // Hash link or other
-      window.location.href = link;
-    }
-  };
-
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {slides.map((slide, idx) => (
@@ -91,9 +75,11 @@ const HeroSection = () => {
             {slide.description && (
               <p className="text-lg mb-6 drop-shadow">{slide.description}</p>
             )}
-            {slide.buttonLink.startsWith("/") ? (
+            {slide.buttonLink.startsWith("http") ? (
               <a
                 href={slide.buttonLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-yellow-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full shadow transition"
               >
                 {slide.buttonText}
@@ -101,8 +87,6 @@ const HeroSection = () => {
             ) : (
               <a
                 href={slide.buttonLink}
-                target={slide.buttonLink.startsWith("http") ? "_blank" : undefined}
-                rel={slide.buttonLink.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="bg-yellow-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full shadow transition"
               >
                 {slide.buttonText}

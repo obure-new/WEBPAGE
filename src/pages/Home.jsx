@@ -1,16 +1,16 @@
-import React from 'react'
-import Footer from '../components/Footer'
+import React from 'react';
+import HeroSection from '../components/HeroSection';
+import GetAQuoteSection from '../components/GetAQuoteSection';
+import ProductGrid from '../components/ProductGrid';
 
 const Home = () => {
   return (
     <div>
-      <Header />
       <HeroSection />
       <GetAQuoteSection />
       <ProductGrid />
-      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
