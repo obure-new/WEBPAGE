@@ -6,6 +6,7 @@ import GetAQuoteSection from "./insurance/GetAQuoteSection";
 import ProductGrid from "./insurance/ProductGrid";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Pharmacy from "./pages/Pharmacy";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/" element={<Pharmacy />} />
       </Routes>
       <Footer />
     </Router>
