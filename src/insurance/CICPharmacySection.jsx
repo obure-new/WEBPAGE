@@ -13,7 +13,7 @@ import {
 
 // Color palette
 const yellow = "bg-yellow-400";
-const mexicanRed = "text-[#a51d2d]"; // Mexican Red
+const mexicanRed = "text-[#a51d2d]"; 
 const white = "bg-white";
 
 const pharmacySlide = {
@@ -48,24 +48,24 @@ const services = [
 const CICPharmacySection = () => (
   <div className="min-h-screen bg-white">
     {/* Hero Section */}
-    <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[75vh] flex items-center overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${pharmacySlide.image})` }}
       >
-        <div className="absolute inset-0 bg-[#a51d2d] bg-opacity-60"></div>
+        <div className="absolute inset-0 bg-[#a51d2d] bg-opacity-20"></div>
       </div>
-      <div className="relative z-20 flex flex-col items-start justify-center text-white text-left w-full h-full px-8 max-w-2xl">
+      <div className="relative z-20 flex flex-col items-start justify-center text-white text-left w-full h-full pl-16 pr-4 max-w-xl md:max-w-lg lg:max-w-md">
         <h2
-          className="text-4xl font-bold mb-4 drop-shadow-lg"
+          className="text-1xl md:text-2xl font-bold mb-3 drop-shadow-lg"
           dangerouslySetInnerHTML={{ __html: pharmacySlide.title }}
         />
         {pharmacySlide.description && (
-          <p className="text-lg mb-6 drop-shadow">{pharmacySlide.description}</p>
+          <p className="text-base mb-4 drop-shadow">{pharmacySlide.description}</p>
         )}
         <a
           href="#services"
-          className="bg-yellow-400 hover:bg-[#a51d2d] text-white font-semibold px-6 py-3 rounded-full shadow transition"
+          className="bg-yellow-400 hover:bg-[#a51d2d] text-white font-semibold px-4 py-2 rounded-full shadow transition text-base"
         >
           Learn More
         </a>
@@ -75,9 +75,6 @@ const CICPharmacySection = () => (
     {/* Pharmacy Content */}
     <section className="bg-gradient-to-br from-white to-yellow-100 py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
-        <div className="mb-8">
-          <h1 className={`${mexicanRed} text-xl font-bold mb-4 tracking-wider`}>CIC GROUP</h1>
-        </div>
         <div className="mb-12 flex justify-center">
           <div className="relative">
             <div className="w-32 h-32 rounded-full bg-gradient-to-r from-yellow-400 via-[#a51d2d] to-yellow-400 p-1">

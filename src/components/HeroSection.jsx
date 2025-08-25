@@ -5,34 +5,34 @@ const slides = [
     image: "/images/carousel/slide1.jpeg",
     title: "We want to help you to <br />secure their future",
     buttonText: "Learn More",
-    buttonLink: "#", // Replace with actual link if needed
+    buttonLink: "#", //  actual link
   },
   {
     image: "/images/carousel/slide5.jpg",
     title: "We are invested in your success",
     description: "Start your investment journey today.",
     buttonText: "Get Started",
-    buttonLink: "#", // Replace with actual link if needed
+    buttonLink: "#", // Actual link 
   },
   {
-    image: "/images/carousel/slide1.jpeg",
+    image: "/images/carousel/slide2.webp",
     title: "Enjoy your sunset years, <br /> while enjoying the sunsets",
     buttonText: "Get Started",
-    buttonLink: "#", // Replace with actual link if needed
+    buttonLink: "#", // Actual link 
   },
   {
     image: "/images/carousel/slide3.jpg",
     title: "A dream worth having",
     description: "Reinvent the art of living in nature. Get your hands on a prestigious plot of land located less than 30 minutes from Nairobi to Ushirika Gardens.",
     buttonText: "Visit Website",
-    buttonLink: "https://ushirkagardens.co.ke", // Example external link
+    buttonLink: "https://ushirkagardens.co.ke", 
   },
   {
     image: "/images/carousel/slide4.jpg",
     title: "Welcome to CIC Pharmacy <br /> Caring Beyond Prescriptions",
     description: "",
     buttonText: "Learn More",
-    buttonLink: "/pharmacy", // Internal pharmacy page
+    buttonLink: "/pharmacy", 
   },
 ];
 

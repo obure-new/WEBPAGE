@@ -2,6 +2,7 @@ import React from 'react';
 import HeroSection from '../components/HeroSection';
 import GetAQuoteSection from '../insurance/GetAQuoteSection';
 import ProductGrid from '../insurance/ProductGrid';
+import NewsletterContactSection from '../components/NewsletterContactSection';
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <HeroSection />
       <GetAQuoteSection />
       <ProductGrid />
+      <NewsletterContactSection />
     </div>
   );
 };

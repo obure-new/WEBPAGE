@@ -22,7 +22,7 @@ const Header = () => {
   const secondaryNavItems = [
     { name: 'Home', href: '/' },
     { name: 'Pharmacy', href: '/pharmacy' },
-    { name: 'Individual Solutions', href: '#', hasDropdown: true },
+    { name: 'Individual Solutions', href: '/individual', hasDropdown: true },
     { name: 'Business Solutions', href: '#', hasDropdown: true },
     { name: 'Corporate Solutions', href: '#', hasDropdown: true },
     { name: 'Cooperative Solutions', href: '#', hasDropdown: true },
@@ -131,7 +131,19 @@ const Header = () => {
                       }
                     }}
                   >
-                    {item.hasDropdown || item.href === '#' ? (
+                    {item.name === 'Individual Solutions' ? (
+                      <Link
+                        to={item.href}
+                        className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
+                          location.pathname === item.href
+                            ? 'text-white bg-black bg-opacity-20 rounded'
+                            : 'text-gray-800 hover:text-white hover:bg-black hover:bg-opacity-10 rounded'
+                        }`}
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : item.hasDropdown || item.href === '#' ? (
                       <button
                         className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
                           location.pathname === item.href
@@ -193,28 +205,36 @@ const Header = () => {
                           </div>
                           {/* Right side */}
                           <div className="w-1/2 p-6">
-                            <ul className="space-y-2">
-                              {[
-                                'Easy Bima',
-                                'Motor Private Insurance',
-                                'Motor Commercial Insurance',
-                                'Home Insurance',
-                                'Seniors Mediplan',
-                                'Money Market Fund',
-                                'Personal Accident',
-                                'Academia',
-                                'Jipange Plus',
-                                'Haba Haba na CIC',
-                                'Smart Saver',
-                                'Professional Indemnity'
-                              ].map((product) => (
-                                <li key={product}>
-                                  <a href="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
-                                    {product}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
+                              <ul className="space-y-2">
+                                {[
+                                  'Easy Bima',
+                                  'Motor Private Insurance',
+                                  'Motor Commercial Insurance',
+                                  'Home Insurance',
+                                  'Seniors Mediplan',
+                                  'Money Market Fund',
+                                  'Personal Accident',
+                                  'Academia',
+                                  'Jipange Plus',
+                                  'Haba Haba na CIC',
+                                  'Smart Saver',
+                                  'Professional Indemnity'
+                                ].map((product) => {
+                                  // Create a hash-friendly id (e.g. easy-bima)
+                                  const hash = product.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                                  return (
+                                    <li key={product}>
+                                      <Link
+                                        to={`/individual#${hash}`}
+                                        className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        {product}
+                                      </Link>
+                                    </li>
+                                  );
+                                })}
+                              </ul>
                           </div>
                         </div>
                       </div>
