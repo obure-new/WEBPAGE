@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const slides = [
   {
-    image: "/images/carousel/slide1.jpeg",
+    image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2022/11/CIC-Afya-Bora.-scaled.webp",
     title: "We want to help you to <br />secure their future",
     buttonText: "Learn More",
     buttonLink: "#", //  actual link
@@ -21,7 +21,7 @@ const slides = [
     buttonLink: "#", // Actual link 
   },
   {
-    image: "/images/carousel/slide3.jpg",
+    image: "/images/carousel/slide7.jpg",
     title: "A dream worth having",
     description: "Reinvent the art of living in nature. Get your hands on a prestigious plot of land located less than 30 minutes from Nairobi to Ushirika Gardens.",
     buttonText: "Visit Website",

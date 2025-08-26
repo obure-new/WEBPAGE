@@ -16,17 +16,17 @@ const Header = () => {
     { name: 'CAREER', href: '#' },
     { name: 'CONTACT US', href: '#' },
     { name: 'COMPLAINTS', href: '#' },
-    { name: 'USHIRIKA GARDENS', href: '#' },
+  { name: 'USHIRIKA GARDENS', href: 'https://ushirikagardens.co.ke/' },
   ];
 
   const secondaryNavItems = [
     { name: 'Home', href: '/' },
     { name: 'Pharmacy', href: '/pharmacy' },
     { name: 'Individual Solutions', href: '/individual', hasDropdown: true },
-    { name: 'Business Solutions', href: '#', hasDropdown: true },
-    { name: 'Corporate Solutions', href: '#', hasDropdown: true },
-    { name: 'Cooperative Solutions', href: '#', hasDropdown: true },
-    { name: 'Claims', href: '#' },
+    { name: 'Business Solutions', href: '/business', hasDropdown: true },
+    { name: 'Corporate Solutions', href: '/corporate', hasDropdown: true },
+    { name: 'Cooperative Solutions', href: '/cooperative', hasDropdown: true },
+    { name: 'Claims', href: '/claims' },
     { name: 'Self-Service', href: '#', hasDropdown: true },
   ];
 
@@ -69,10 +69,22 @@ const Header = () => {
               <nav className="hidden lg:flex flex-1 justify-center space-x-4">
                 {primaryNavItems.map((item) => (
                   <div key={item.name} className="relative group">
-                    <button className="text-gray-700 hover:text-red-600 px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center">
-                      {item.name}
-                      {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-                    </button>
+                    {item.href.startsWith('http') ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-red-600 px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center"
+                      >
+                        {item.name}
+                        {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
+                      </a>
+                    ) : (
+                      <button className="text-gray-700 hover:text-red-600 px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center">
+                        {item.name}
+                        {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
+                      </button>
+                    )}
                   </div>
                 ))}
               </nav>
@@ -98,8 +110,8 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Secondary Navigation */}
-        <div className="bg-yellow-500 sticky top-[64px] z-40 mt-[64px]">
+  {/* Secondary Navigation */}
+  <div className="bg-yellow-500 mt-[64px]">
           <div className="max-w-14xl mx-auto px-4 sm:px-4 lg:px-4">
             <div className="flex items-center justify-between h-12">
               {/* Search */}
@@ -131,7 +143,7 @@ const Header = () => {
                       }
                     }}
                   >
-                    {item.name === 'Individual Solutions' ? (
+                    {(item.name === 'Individual Solutions' || item.name === 'Business Solutions' || item.name === 'Corporate Solutions' || item.name === 'Cooperative Solutions' || item.name === 'Claims') ? (
                       <Link
                         to={item.href}
                         className={`px-3 py-2 text-sm font-medium transition-colors duration-200 flex items-center ${
@@ -455,9 +467,21 @@ const Header = () => {
           <div className="lg:hidden fixed top-16 left-0 right-0 z-40">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
               {primaryNavItems.map((item) => (
-                <button key={item.name} className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left">
-                  {item.name}
-                </button>
+                item.href && item.href.startsWith('http') ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <button key={item.name} className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left">
+                    {item.name}
+                  </button>
+                )
               ))}
               <div className="border-t border-gray-200 pt-3">
                 {secondaryNavItems.map((item) => (

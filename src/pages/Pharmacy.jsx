@@ -1,6 +1,5 @@
 import React from 'react'
-import CICPharmacySection from '../insurance/CICPharmacySection'
-import NewsletterContactSection from '../components/NewsletterContactSection'
+import CICPharmacySection from '../sections/CICPharmacySection'
 
 const Pharmacy = () => {
   return (

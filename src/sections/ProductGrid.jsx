@@ -56,16 +56,18 @@ const ProductGrid = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-gray-200">
       {/* Section1 */}
       <div className="relative min-h-screen overflow-hidden">
         {/* Bg Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('/images/carousel/slide6.jpg')`
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('https://www.ugandasafaristours.com/wp-content/uploads/2024/12/fairmontnorfolkhotel6.jpg')`
           }}
-        />
+        >
+          <div className="absolute inset-0 backdrop-blur-md" />
+        </div>
         
         {/* Content Overlay */}
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
@@ -147,8 +149,6 @@ const ProductGrid = () => {
         </div>
 
       </div>
-      {/* Newsletter and Contact Section */}
-      
 
     </div>
   );

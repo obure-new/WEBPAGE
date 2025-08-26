@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { ChevronLeft, ArrowUp } from 'lucide-react';
 
 const valuablesCards = [
-  { title: 'Golfer’s Insurance', img: 'https://e0.365dm.com/23/12/2048x1152/skysports-golf-golf-ball-driver_6384067.jpg?20231206121643' },
-  { title: 'Mjengo Plus Contractor All Risks', img: 'https://img.freepik.com/free-photo/yellow-hard-hat-construction-site_1150-11045.jpg' },
-  { title: 'Marine Policy', img: 'https://cff2.earth.com/uploads/2022/05/19094254/Shipping-scaled.jpg' },
+  { title: 'Business Combined Policy', img: 'https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/Business-combined-header-min.png' },
+  { title: 'Fire Industrial', img: 'https://www.tokiomarine.com/content/dam/tokiomarine/sg/non-life/product-business/property/Resized%20-%20FireD.jpg' },
+  { title: 'Biashara Salama', img: 'https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/biashara-salama-min.png' },
+  { title: 'Contractors All Risks', img: 'https://www.hashmicro.com/id/blog/wp-content/uploads/2019/11/Hal-Penting-Yang-Perlu-Diketahui-Tentang-Pajak-Jasa-Konstruksi.jpg' },
+  { title: 'Machinery Breakdown', img: 'https://www.market-prospects.com/storage/images/301-1200x675.jpg' },
+  { title: 'Professional Indemnity', img: 'https://t3.ftcdn.net/jpg/06/49/17/12/360_F_649171273_VFeywC6mkV83Y96fDbxzXEoiaX4PcX8X.jpg' },
+  { title: 'Mpesa Agents Insurance Package', img: 'https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/mpesa-agent-min.png' },
+  { title: 'Marine Insurance', img: 'https://media.istockphoto.com/id/1474410944/photo/large-container-ship-in-harbour-on-a-clear-summer-day.jpg?s=612x612&w=0&k=20&c=2CuIZpVfci8HD-TQ-UGJ7HQVuqDqsQC8Bl5LMbyi0IE=' },
   { title: 'Motor Private Insurance', img: 'https://images-porsche.imgix.net/-/media/0B3F90A75B0141FF8BED694C3C1A323B_7C02423B08CB49C8801E208B2D16A51E_CZ25W18OX0004-911-gt3-white-side?w=2560&h=1440&q=45&crop=faces%2Centropy%2Cedges&auto=format' },
   { title: 'Motor Commercial', img: 'https://www.tatamotors.com/wp-content/themes/TataMotors/images/cv-banner.jpg' },
   { title: 'Agriculture Insurance', img: 'https://images.pexels.com/photos/461717/pexels-photo-461717.jpeg?cs=srgb&dl=pexels-pixabay-461717.jpg&fm=jpg' },
-  { title: 'Professional Indemnity', img: 'https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/employee-group-life-min.png' },
-  { title: 'Domestic Package', img: 'https://www.leaderbank.com/sites/default/files/2023-05/AdobeStock_568418814.jpeg' }
+  { title: 'School guard', img: 'https://www.shutterstock.com/image-photo/kids-showing-hands-during-lesson-600nw-667978948.jpg' },
+  { title: 'Plate Glass', img: 'https://www.getbcs.com/hubfs/Blog/bcs-blog-what-is-plate-glass-insurance.jpg' },
+  { title: 'Erection All Risks', img: 'https://constructionreviewonline.com/wp-content/uploads/2020/03/2020-03-16_5e6ef08b49c3c_building-construction-sunset.jpg' },
+  { title: 'Employer Liability', img: 'https://images.pexels.com/photos/955388/pexels-photo-955388.jpeg?cs=srgb&dl=pexels-cytonn-955388.jpg&fm=jpg' },
+  { title: 'Public Liability', img: 'https://cdn7.dissolve.com/p/D145_121_331/D145_121_331_1200.jpg' },
 ];
 
-const FinancialServicesWebsite = () => {
+const BusinessSolutions = () => {
   const [scrollIndex, setScrollIndex] = useState(0);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -24,7 +32,7 @@ const FinancialServicesWebsite = () => {
       <div
         className="relative h-[80vh] overflow-hidden"
         style={{
-          backgroundImage: "url('https://t3.ftcdn.net/jpg/02/92/97/68/360_F_292976820_ux0tcIK9ZbMzEIhwLgFE2rl2jhV0n3uY.jpg')",
+          backgroundImage: "url('https://img.freepik.com/free-photo/people-office-work-day_23-2150690154.jpg?semt=ais_hybrid&w=740&q=80')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -33,8 +41,8 @@ const FinancialServicesWebsite = () => {
         <div className="relative z-10 container mx-auto px-8 h-full flex items-center">
           <div className="max-w-2xl text-white">
             <h1 className="text-2xl md:text-3xl font-bold leading-tight mb-8">
-              Protect & grow what you have.<br />
-              We are here to help you plan a better future.
+              Let us pull together. <br />
+               In the direction of your success.
             </h1>
             <button className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105 hover:bg-[#a51d2d] hover:text-white">
               Learn More
@@ -49,13 +57,13 @@ const FinancialServicesWebsite = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/3">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Protect your valuables
+                Protect your investments
               </h2>
               <p className="text-gray-600 text-base mb-3">
-                You work so hard, but unfortunately you can lose it all. It's life!
+                Business is risky. There are so many uncertainties, but you can sleep better knowing that we have you covered.
               </p>
               <p className="text-gray-600 text-base">
-                We are here to get you back on your feet in case life happens to you. Explore our wide range of products that are tailored to protect all those things that you have worked so hard for.
+               Our policies are tailored just for you, to make sure that you do not lose your assets & investments that you have worked so hard for.
               </p>
             </div>
             
@@ -116,13 +124,13 @@ const FinancialServicesWebsite = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/3">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Plan & grow your money
+                Go further with your investments
               </h2>
               <p className="text-gray-600 text-base mb-3">
-                Do you want to diversify your income streams or save for that much awaited retirement? We have you covered.
+                Do you want to diversify your portfolio while minimising your risks? We are here for you.
               </p>
               <p className="text-gray-600 text-base">
-                Explore our range of products that have been made to help you gain and grow your financial value.
+                Our team of qualified portfolio & investment managers will ensure that you get the most out of your investment with us.
               </p>
             </div>
             
@@ -166,13 +174,13 @@ const FinancialServicesWebsite = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/3">
               <h2 className="text-3xl font-bold text-gray-800 mb-4">
-                Protect your loved ones
+                Protect your MVPs
               </h2>
               <p className="text-gray-600 text-base mb-3">
-                Life is full of risks and uncertainty. You need a partner who will help you worry less, and allow you to live your life to it's full potential.
+                You have worked hard to get here.
               </p>
               <p className="text-gray-600 text-base">
-                Our life protection products take away the burden of worrying about your future, and those who you love and value. Explore what we can do for you!
+                OWe want to take care of you, you deserve it. Our products have been designed to make sure that you can take the load off, and enjoy what you have worked for.
               </p>
             </div>
             
@@ -189,7 +197,7 @@ const FinancialServicesWebsite = () => {
 
                 {/* Life Protection Solutions Card */}
                 <div className="min-w-[250px] max-w-[250px] h-[300px] group relative overflow-hidden rounded-2xl shadow-lg bg-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                  <img src="https://dano.com.ng/wp-content/uploads/2018/10/Family-1.png" alt="Life Protection Solutions" className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110 group-hover:brightness-90" />
+                  <img src="https://ke.cicinsurancegroup.com/wp-content/uploads/2022/11/CIC-Afya-Bora.-scaled.webp" alt="Life Protection Solutions" className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110 group-hover:brightness-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80 group-hover:opacity-60 transition-all duration-300"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="text-white font-semibold text-lg drop-shadow-lg">Life Protection Solutions</h3>
@@ -224,4 +232,4 @@ const FinancialServicesWebsite = () => {
   );
 };
 
-export default FinancialServicesWebsite;
+export default BusinessSolutions;
