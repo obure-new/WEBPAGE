@@ -1,6 +1,6 @@
 import React from 'react';
 import CooperativesSolution from '../insurance/CooperativesSolution';
-import NewsletterContactSection from '../components/NewsletterContactSection';
+import NewsletterContactSection from '../components/MainContent/NewsletterContactSection';
 
 const Cooperative = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import ClaimsInformation from '../insurance/ClaimsInformation';
-import NewsletterContactSection from '../components/NewsletterContactSection';
+import NewsletterContactSection from '../components/MainContent/NewsletterContactSection';
 
 const Claims = () => {
   return (

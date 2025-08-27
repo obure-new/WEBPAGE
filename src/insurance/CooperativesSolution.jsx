@@ -118,7 +118,7 @@ const BusinessSolutions = () => {
         </div>
       </section>
 
-      {/* Plan & Grow Your Money Section */}
+      {/* Plan & Grow Your Money  */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -168,7 +168,7 @@ const BusinessSolutions = () => {
         </div>
       </section>
 
-      {/* Protect Your Loved Ones Section */}
+      {/* Protect Your Loved Ones  */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -218,10 +218,10 @@ const BusinessSolutions = () => {
         </div>
       </section>
 
-      {/* Bottom Orange Bar */}
+      {/* Bottom Bar */}
       <div className="h-2 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll  */}
       <button
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 w-12 h-12 bg-gray-400 hover:bg-gray-500 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 opacity-70 hover:opacity-100"

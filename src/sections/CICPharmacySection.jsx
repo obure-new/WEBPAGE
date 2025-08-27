@@ -72,7 +72,7 @@ const CICPharmacySection = () => (
       </div>
     </div>
 
-    {/* Pharmacy Content */}
+    {/* Pharmacy  */}
     <section className="bg-gradient-to-br from-white to-yellow-100 py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-12 flex justify-center">

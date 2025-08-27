@@ -1,6 +1,6 @@
 import React from 'react';
 import CorporateSolutions from '../insurance/CorporateSolutions';
-import NewsletterContactSection from '../components/NewsletterContactSection';
+import NewsletterContactSection from '../components/MainContent/NewsletterContactSection';
 
 const Corporate = () => {
   return (

@@ -48,7 +48,7 @@ const BusinessSolutions = () => {
         </div>
       </div>
 
-      {/* Protect Your Valuables Section */}
+      {/* Protect Your Valuables */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -115,7 +115,7 @@ const BusinessSolutions = () => {
         </div>
       </section>
 
-      {/* Plan & Grow Your Money Section */}
+      {/* Plan & Grow Your Money  */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-8">
           <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -133,7 +133,7 @@ const BusinessSolutions = () => {
             
             <div className="lg:w-2/3">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/* Investment Solutions Card */}
+                {/* Investment Solution Car */}
                 <div className="min-w-[250px] max-w-[250px] h-[300px] group relative overflow-hidden rounded-2xl shadow-lg bg-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                   <img src="https://www.shutterstock.com/image-photo/business-woman-handshake-agreement-partnership-600nw-2311431727.jpg" alt="Investment Solutions" className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110 group-hover:brightness-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80 group-hover:opacity-60 transition-all duration-300"></div>
@@ -142,7 +142,7 @@ const BusinessSolutions = () => {
                   </div>
                 </div>
 
-                {/* Savings Solution Card */}
+                {/* Savings Solution */}
                 <div className="min-w-[250px] max-w-[250px] h-[300px] group relative overflow-hidden rounded-2xl shadow-lg bg-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                   <img src="https://www.ohea.on.ca/uploads/1/2/6/0/12605917/money-2724241-640_orig.jpg" alt="Savings Solution" className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110 group-hover:brightness-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80 group-hover:opacity-60 transition-all duration-300"></div>
@@ -151,7 +151,7 @@ const BusinessSolutions = () => {
                   </div>
                 </div>
 
-                {/* Retirement Solutions Card */}
+                {/* Retirement Solutions  */}
                 <div className="min-w-[250px] max-w-[250px] h-[300px] group relative overflow-hidden rounded-2xl shadow-lg bg-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                   <img src="/images/carousel/slide2.webp" alt="Retirement Solutions" className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110 group-hover:brightness-90" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-80 group-hover:opacity-60 transition-all duration-300"></div>
@@ -215,10 +215,10 @@ const BusinessSolutions = () => {
         </div>
       </section>
 
-      {/* Bottom Orange Bar */}
+      {/* Bottom  Bar */}
       <div className="h-2 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
 
-      {/* Scroll to Top Button */}
+      {/* Scroll  */}
       <button
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 w-12 h-12 bg-gray-400 hover:bg-gray-500 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-110 opacity-70 hover:opacity-100"

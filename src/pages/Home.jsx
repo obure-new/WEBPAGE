@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/MainContent/HeroSection';
 import GetAQuoteSection from '../sections/GetAQuoteSection';
 import ProductGrid from '../sections/ProductGrid';
-import NewsletterContactSection from '../components/NewsletterContactSection';
+import NewsletterContactSection from '../components/MainContent/NewsletterContactSection';
 
 const Home = () => {
   return (

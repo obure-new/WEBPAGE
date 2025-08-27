@@ -16,7 +16,7 @@ const Header = () => {
     { name: 'CAREER', href: '#' },
     { name: 'CONTACT US', href: '#' },
     { name: 'COMPLAINTS', href: '#' },
-  { name: 'USHIRIKA GARDENS', href: 'https://ushirikagardens.co.ke/' },
+  { name: 'USHIRIKA GARDENS', href: '/ushirika-gardens' },
   ];
 
   const secondaryNavItems = [
@@ -40,7 +40,6 @@ const Header = () => {
   };
 
   const handleDropdownMouseLeave = () => {
-    // Set a timeout to close the dropdown
     hoverTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
     }, 150);
@@ -69,18 +68,16 @@ const Header = () => {
               <nav className="hidden lg:flex flex-1 justify-center space-x-4">
                 {primaryNavItems.map((item) => (
                   <div key={item.name} className="relative group">
-                    {item.href.startsWith('http') ? (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-700 hover:text-red-600 px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center"
+                    {item.href && item.href !== '#' ? (
+                      <Link
+                        to={item.href}
+                        className="text-gray-700 hover:text-[#a51d2d] px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center"
                       >
                         {item.name}
                         {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
-                      </a>
+                      </Link>
                     ) : (
-                      <button className="text-gray-700 hover:text-red-600 px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center">
+                      <button className="text-gray-700 hover:text-[#a51d2d] px-2 py-1 text-sm font-medium transition-colors duration-200 flex items-center">
                         {item.name}
                         {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
                       </button>
@@ -467,16 +464,14 @@ const Header = () => {
           <div className="lg:hidden fixed top-16 left-0 right-0 z-40">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
               {primaryNavItems.map((item) => (
-                item.href && item.href.startsWith('http') ? (
-                  <a
+                item.href && item.href !== '#' ? (
+                  <Link
                     key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to={item.href}
                     className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ) : (
                   <button key={item.name} className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left">
                     {item.name}

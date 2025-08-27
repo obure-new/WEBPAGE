@@ -1,6 +1,6 @@
 import React from 'react'
 import BusinessSolutions from '../insurance/BusinessSolutions'
-import NewsletterContactSection from '../components/NewsletterContactSection'
+import NewsletterContactSection from '../components/MainContent/NewsletterContactSection'
 
 const Business = () => {
   return (

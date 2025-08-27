@@ -1,12 +1,8 @@
-import React from 'react'
-import UshirikaGardens from '../data/UshirikaGardens'
+import React from "react";
+import UshirikaGardens from "../components/Ushirika/UshirikaGardens";
 
 const Ushirika = () => {
-  return (
-    <div>
-      <UshirikaGardens />
-    </div>
-  )
-}
+  return <UshirikaGardens />;
+};
 
-export default Ushirika
+export default Ushirika;

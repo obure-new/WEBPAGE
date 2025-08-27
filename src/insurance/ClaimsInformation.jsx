@@ -86,7 +86,7 @@ const ClaimsInformation = () => {
             ))}
           </div>
 
-          {/* Claims Process Content */}
+          {/* Claims Process Cont */}
           {activeTab === 'Motor' && (
             <div className="grid md:grid-cols-2 gap-12 text-left">
               <div>

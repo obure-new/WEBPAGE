@@ -1,22 +1,23 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Pharmacy from './pages/Pharmacy';
-import Individual from './pages/Individual';
-import Business from './pages/Business';
-import Corporate from './pages/Corporate';
-import Cooperative from './pages/Cooperative';
-import Claims from './pages/Claims';
-import Ushirika from './pages/Ushirika';
+import MainLayout from "./layouts/MainLayout";
+import UshirikaLayout from "./layouts/UshirikaLayout";
+import Home from "./pages/Home";
+import Pharmacy from "./pages/Pharmacy";
+import Individual from "./pages/Individual";
+import Business from "./pages/Business";
+import Corporate from "./pages/Corporate";
+import Cooperative from "./pages/Cooperative";
+import Claims from "./pages/Claims";
+import Ushirika from "./pages/Ushirika";
+import UshirikaGardens from "./components/Ushirika/UshirikaGardens";
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
-        <Header />
-        <Routes>
+      <Routes>
+        {/* Main site */}
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/pharmacy" element={<Pharmacy />} />
           <Route path="/individual" element={<Individual />} />
@@ -24,10 +25,14 @@ function App() {
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/cooperative" element={<Cooperative />} />
           <Route path="/claims" element={<Claims />} />
+        </Route>
+
+        {/* Ushirika section */}
+        <Route element={<UshirikaLayout />}>
           <Route path="/ushirika" element={<Ushirika />} />
-        </Routes>
-        <Footer />
-      </div>
+          <Route path="/ushirika-gardens" element={<UshirikaGardens />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

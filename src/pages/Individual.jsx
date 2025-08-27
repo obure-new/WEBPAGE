@@ -1,6 +1,6 @@
 import React from 'react'
 import IndividualSolutions from '../insurance/IndividualSolutions'
-import NewsletterContactSection from '../components/NewsletterContactSection'
+import NewsletterContactSection from '../components/MainContent/NewsletterContactSection'
 
 const Individual = () => {
   return (
