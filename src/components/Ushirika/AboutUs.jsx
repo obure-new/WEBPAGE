@@ -4,7 +4,7 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* About Us Hero */}
-      <div className="relative h-96 overflow-hidden">
+      <div className="relative h-[75vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10"></div>
         <img 
           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
@@ -18,8 +18,8 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* CIC Group Section */}
-      <div className="bg-gray-50 py-16">
+      {/* CIC Group Section - Who Are We */}
+      <div id="who-we-are" className="bg-gray-50 py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">CIC Group</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
@@ -44,7 +44,7 @@ export default function AboutUs() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 lg:order-1">
               <img 
-                src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                src="https://ushirikagardens.cic.co.ke/wp-content/uploads/2023/12/about1-6575510f51596.webp" 
                 alt="Nature landscape"
                 className="w-full h-80 object-cover rounded-2xl shadow-xl"
               />
@@ -67,7 +67,7 @@ export default function AboutUs() {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                src="https://ushirikagardens.cic.co.ke/wp-content/uploads/2023/12/about2-6575510ad8cb0.webp" 
                 alt="Modern living room"
                 className="w-full h-80 object-cover rounded-2xl shadow-xl"
               />
@@ -78,7 +78,7 @@ export default function AboutUs() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="order-2 lg:order-1">
               <img 
-                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                src="https://ushirikagardens.cic.co.ke/wp-content/uploads/2023/12/about3-6575510c246e1.webp" 
                 alt="Land development"
                 className="w-full h-80 object-cover rounded-2xl shadow-xl"
               />
@@ -101,7 +101,7 @@ export default function AboutUs() {
             </div>
             <div>
               <img 
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                src="https://ushirikagardens.cic.co.ke/wp-content/uploads/2023/12/about4-6575510d0a3dc.webp" 
                 alt="Outdoor living space with pool"
                 className="w-full h-80 object-cover rounded-2xl shadow-xl"
               />
@@ -110,8 +110,8 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Word Cloud Section */}
-      <div className="bg-gradient-to-br from-yellow-50 to-orange-50 py-16">
+      {/* Word Cloud Section - Why Choose Us */}
+      <div id="why-choose-us" className="bg-gradient-to-br from-yellow-50 to-orange-50 py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center relative">
             {/* Main Word Cloud Display */}
@@ -172,12 +172,12 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Company Logos Section */}
-      <div className="bg-white py-16">
+      {/* Company Logos Section - Meet Our Partners */}
+      <div id="partners" className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <img 
-              src="https://ushirikagardens.cic.co.ke/wp-content/uploads/2024/08/CIC-Group_Footer-Logo_Colored.png" 
+              src="https://cdn.brandfetch.io/idqET1HYHr/w/322/h/270/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1753222672607" 
               alt="CIC Group"
               className="h-20 mx-auto mb-8"
             />

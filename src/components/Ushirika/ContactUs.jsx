@@ -33,14 +33,13 @@ export default function ContactUs() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-64 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-green-600/80 to-blue-600/80 z-10"></div>
+      <div className="relative h-[70vh] overflow-hidden">
         <img 
           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
           alt="Landscape"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
+        <div className="absolute inset-0 z-20 flex items-center justify-left ">
           <h1 className="text-4xl md:text-6xl font-bold text-white text-center">
             Contact Us
           </h1>
@@ -113,7 +112,7 @@ export default function ContactUs() {
               
               <button
                 onClick={handleSubmit}
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2"
+                className="bg-[#a51d2d]  hover:bg-yellow-400 hover:text-white text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2"
               >
                 <Send className="w-4 h-4" />
                 Send Message
@@ -237,7 +236,7 @@ export default function ContactUs() {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white p-8 rounded-2xl shadow-2xl">
+          <div className="bg-gradient-to-r from-red-600 to-yellow-400 text-white p-8 rounded-2xl shadow-2xl">
             <h2 className="text-3xl font-bold mb-6">Ready to Visit Ushirika Gardens?</h2>
             <p className="text-xl mb-8 opacity-90">
               Schedule your site visit today and discover your future home
@@ -247,7 +246,7 @@ export default function ContactUs() {
                 <Phone className="w-5 h-5" />
                 Call 0717 100 100
               </button>
-              <button className="bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
+              <button className="bg-white text-red-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <MessageCircle className="w-5 h-5" />
                 Chat with us
               </button>

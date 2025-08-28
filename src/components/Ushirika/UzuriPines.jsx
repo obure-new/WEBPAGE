@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Phone, MessageCircle, Download, Shield, TreePine, Square, Building, Navigation, Droplets, Lightbulb, Home } from 'lucide-react';
 
-export default function UzuriPines() {
+const UzuriPines = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const amenities = [
     {
       icon: <Shield className="w-8 h-8" />,
@@ -47,7 +50,7 @@ export default function UzuriPines() {
       <div className="relative h-screen overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 z-10"></div>
         <img 
-          src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+          src="https://ushirikagardens.cic.co.ke/wp-content/uploads/slider/cache/f0bcc56c2e3852c88172c1a3d43d166e/House.jpg" 
           alt="Modern House"
           className="w-full h-full object-cover"
         />
@@ -72,9 +75,9 @@ export default function UzuriPines() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Introduction Section */}
+        {/* Introduction Sec */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
             Uzuri (n) Swahili :// Of Beauty
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -159,17 +162,17 @@ export default function UzuriPines() {
 
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-12 rounded-2xl shadow-2xl">
+          <div className="bg-gradient-to-r from-red-600 to-yellow-400 text-white p-12 rounded-2xl shadow-2xl">
             <h2 className="text-3xl font-bold mb-6">Ready to Secure Your Plot?</h2>
             <p className="text-xl mb-8 opacity-90">
               Don't miss out on this opportunity to own prime real estate in Uzuri Pines
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
+              <button className="bg-white text-yellow-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <Phone className="w-5 h-5" />
                 Call 0717 100 100
               </button>
-              <button className="bg-green-500 text-white px-8 py-4 rounded-full font-bold hover:bg-green-600 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
+              <button className="bg-[#a51d2d] text-white px-8 py-4 rounded-full font-bold hover:bg-yellow-300 hover:text-black transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <MessageCircle className="w-5 h-5" />
                 Chat with us
               </button>
@@ -180,3 +183,5 @@ export default function UzuriPines() {
     </div>
   );
 }
+
+export default UzuriPines;

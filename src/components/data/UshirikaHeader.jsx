@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from 'lucide-react';
 
-const Header = () => {
+const Header = ({ onScheduleVisit }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDropdownToggle = (dropdown) => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
@@ -12,6 +14,34 @@ const Header = () => {
 
   const closeDropdown = () => {
     setActiveDropdown(null);
+  };
+
+  // Function to handle smooth scrolling to sections
+  const handleSectionNavigation = (sectionId) => {
+    // If we're not on the about page, navigate there first
+    if (location.pathname !== '/about') {
+      navigate('/about');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    } else {
+      // If already on about page, scroll directly
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    closeDropdown();
   };
 
   useEffect(() => {
@@ -25,12 +55,36 @@ const Header = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  // Handle hash navigation on page load
+  useEffect(() => {
+    if (location.pathname === '/about' && location.hash) {
+      const sectionId = location.hash.substring(1);
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  // Function to check if a route is active
+  const isActiveRoute = (path) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+
   return (
-    <header className="bg-white shadow-sm relative z-50">
+    <header className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="w-20 h-20 rounded-lg flex items-center justify-center bg-white">
+          <div className="w-20 h-12 rounded-lg flex items-center justify-center bg-white">
             <Link to="/">
               <img
                 src="https://ushirikagardens.cic.co.ke/wp-content/uploads/2023/10/ushirika-logo_cropped-1.png"
@@ -43,14 +97,25 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex space-x-8">
-          <Link to="/" className="text-gray-700 hover:text-red-600 transition-colors font-semibold">
+          <Link 
+            to="/" 
+            className={`transition-colors font-semibold ${
+              isActiveRoute('/') 
+                ? 'text-red-600 border-b-2 border-red-600 pb-1' 
+                : 'text-gray-700 hover:text-red-600'
+            }`}
+          >
             Home
           </Link>
 
           {/* Ushirika Gardens Dropdown */}
           <div className="relative dropdown-container">
             <button
-              className="text-gray-700 hover:text-red-600 transition-colors flex items-center space-x-1"
+              className={`transition-colors flex items-center space-x-1 ${
+                isActiveRoute('/ushirika') || isActiveRoute('/uzuri-pines')
+                  ? 'text-red-600 border-b-2 border-red-600 pb-1'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
               onClick={() => handleDropdownToggle('ushirika')}
               onMouseEnter={() => setActiveDropdown('ushirika')}
             >
@@ -71,7 +136,7 @@ const Header = () => {
                   Ujima Park
                 </Link>
                 <Link
-                  to="/ushirika/uzuri-pines"
+                  to="/uzuri-pines"
                   className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Uzuri Pines
@@ -80,41 +145,45 @@ const Header = () => {
             )}
           </div>
 
-          {/* About Us Dropdown */}
+          {/* About Us Dropdown - Updated with smooth scrolling */}
           <div className="relative dropdown-container">
-            <button
-              className="text-gray-700 hover:text-red-600 transition-colors flex items-center space-x-1"
-              onClick={() => handleDropdownToggle('about')}
+            <Link
+              to="/about"
+              className={`transition-colors flex items-center space-x-1 ${
+                isActiveRoute('/about')
+                  ? 'text-red-600 border-b-2 border-red-600 pb-1'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
               onMouseEnter={() => setActiveDropdown('about')}
             >
               <span>About Us</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </button>
+            </Link>
             {activeDropdown === 'about' && (
               <div
                 className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-lg border z-50"
                 onMouseLeave={closeDropdown}
               >
-                <Link
-                  to="/about/who-we-are"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                <button
+                  onClick={() => handleSectionNavigation('who-we-are')}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Who Are We
-                </Link>
-                <Link
-                  to="/about/why-choose-us"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                </button>
+                <button
+                  onClick={() => handleSectionNavigation('why-choose-us')}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Why Choose Us
-                </Link>
-                <Link
-                  to="/about/partners"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                </button>
+                <button
+                  onClick={() => handleSectionNavigation('partners')}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Meet Our Partners
-                </Link>
+                </button>
               </div>
             )}
           </div>
@@ -122,7 +191,11 @@ const Header = () => {
           {/* Jenga Dropdown */}
           <div className="relative dropdown-container">
             <button
-              className="text-gray-700 hover:text-red-600 transition-colors flex items-center space-x-1"
+              className={`transition-colors flex items-center space-x-1 ${
+                isActiveRoute('/jenga')
+                  ? 'text-red-600 border-b-2 border-red-600 pb-1'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
               onClick={() => handleDropdownToggle('jenga')}
               onMouseEnter={() => setActiveDropdown('jenga')}
             >
@@ -155,7 +228,11 @@ const Header = () => {
           {/* Resources Dropdown */}
           <div className="relative dropdown-container">
             <button
-              className="text-gray-700 hover:text-red-600 transition-colors flex items-center space-x-1"
+              className={`transition-colors flex items-center space-x-1 ${
+                isActiveRoute('/resources')
+                  ? 'text-red-600 border-b-2 border-red-600 pb-1'
+                  : 'text-gray-700 hover:text-red-600'
+              }`}
               onClick={() => handleDropdownToggle('resources')}
               onMouseEnter={() => setActiveDropdown('resources')}
             >
@@ -191,10 +268,24 @@ const Header = () => {
             )}
           </div>
 
-          <Link to="/news" className="text-gray-700 hover:text-red-600 transition-colors">
+          <Link 
+            to="/news" 
+            className={`transition-colors ${
+              isActiveRoute('/news')
+                ? 'text-red-600 border-b-2 border-red-600 pb-1'
+                : 'text-gray-700 hover:text-red-600'
+            }`}
+          >
             News
           </Link>
-          <Link to="/contact" className="text-gray-700 hover:text-red-600 transition-colors">
+          <Link 
+            to="/contact" 
+            className={`transition-colors ${
+              isActiveRoute('/contact')
+                ? 'text-red-600 border-b-2 border-red-600 pb-1'
+                : 'text-gray-700 hover:text-red-600'
+            }`}
+          >
             Contact Us
           </Link>
         </nav>
@@ -205,12 +296,12 @@ const Header = () => {
             <Phone className="w-4 h-4" />
             <span className="font-semibold">0717 100 100</span>
           </div>
-          <Link
-            to="/schedule-visit"
-            className="bg-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-colors"
+          <button
+            onClick={onScheduleVisit}
+            className="bg-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-semibold hover:bg-[#a51d2d] hover:text-white transition-colors"
           >
             Schedule a visit
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -237,24 +328,45 @@ const Header = () => {
                 <Link to="/ushirika/ujima-park" className="block text-gray-600 hover:text-red-600">
                   Ujima Park
                 </Link>
-                <Link to="/ushirika/uzuri-pines" className="block text-gray-600 hover:text-red-600">
+                <Link to="/uzuri-pines" className="block text-gray-600 hover:text-red-600">
                   Uzuri Pines
                 </Link>
               </div>
             </div>
             
+            {/* Mobile About Us - Updated with smooth scrolling */}
             <div className="space-y-2">
-              <span className="block text-gray-700 font-semibold">About Us</span>
+              <Link to="/about" className="block text-gray-700 font-semibold hover:text-red-600">
+                About Us
+              </Link>
               <div className="pl-4 space-y-2">
-                <Link to="/about/who-we-are" className="block text-gray-600 hover:text-red-600">
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleSectionNavigation('who-we-are');
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Who Are We
-                </Link>
-                <Link to="/about/why-choose-us" className="block text-gray-600 hover:text-red-600">
+                </button>
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleSectionNavigation('why-choose-us');
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Why Choose Us
-                </Link>
-                <Link to="/about/partners" className="block text-gray-600 hover:text-red-600">
+                </button>
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleSectionNavigation('partners');
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Meet Our Partners
-                </Link>
+                </button>
               </div>
             </div>
             
@@ -288,7 +400,7 @@ const Header = () => {
             <Link to="/news" className="block text-gray-700 hover:text-red-600">
               News
             </Link>
-            <Link to="/contact" className="block text-gray-700 hover:text-red-600">
+            <Link to="/contact-us" className="block text-gray-700 hover:text-red-600">
               Contact Us
             </Link>
             
@@ -297,12 +409,15 @@ const Header = () => {
                 <Phone className="w-4 h-4" />
                 <span className="font-semibold">0717 100 100</span>
               </div>
-              <Link
-                to="/schedule-visit"
-                className="block w-full bg-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-semibold text-center"
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  onScheduleVisit && onScheduleVisit();
+                }}
+                className="block w-full bg-yellow-400 text-gray-900 px-6 py-2 rounded-lg font-semibold text-center hover:bg-[#a51d2d] transition-colors"
               >
                 Schedule a visit
-              </Link>
+              </button>
             </div>
           </nav>
         </div>

@@ -60,7 +60,7 @@ const UshirikaFooter = () => {
                 <a
                 href="#"
                 className="w-10 h-10 bg-yellow rounded-full flex items-center justify-center 
-                hover:bg-red-700 hover:text-white transition-all duration-300 
+                hover:bg-yellow-400 hover:text-white transition-all duration-300 
                 shadow-sm border border-gray-300"
                 >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ const UshirikaFooter = () => {
                 <a
                 href="#"
                 className="w-10 h-10 bg-yellow rounded-full flex items-center justify-center 
-                hover:bg-red-700 hover:text-white transition-all duration-300 
+                hover:bg-yellow-400 hover:text-white transition-all duration-300 
                 shadow-sm border border-gray-300"
                 >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ const UshirikaFooter = () => {
                 <a
                 href="#"
                 className="w-10 h-10 bg-yellow rounded-full flex items-center justify-center 
-                hover:bg-red-700 hover:text-white transition-all duration-300 
+                hover:bg-yellow-400 hover:text-white transition-all duration-300 
                 shadow-sm border border-gray-300"
                 >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ const UshirikaFooter = () => {
                 <a
                 href="#"
                 className="w-10 h-10 bg-yellow rounded-full flex items-center justify-center 
-                hover:bg-red-700 hover:text-white transition-all duration-300 
+                hover:bg-yellow-400 hover:text-white transition-all duration-300 
                 shadow-sm border border-gray-300"
                 >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ const UshirikaFooter = () => {
                 <a
                 href="#"
                 className="w-10 h-10 bg-yellow rounded-full flex items-center justify-center 
-                hover:bg-green-700 hover:text-white transition-all duration-300 
+                hover:bg-yellow-400 hover:text-white transition-all duration-300 
                 shadow-sm border border-gray-300"
                 >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@ const UshirikaFooter = () => {
           
           {/* Copyright */}
           <div className="border-t border-red-500 mt-8 pt-6 text-center">
-            <p className="text-red-100 text-sm">Copyright 2023 © Ushirika Gardens. All rights reserved by CIC Group</p>
+            <p className="text-red-100 text-sm">Copyright 2025 © Ushirika Gardens. All rights reserved by CIC Group</p>
           </div>
         </div>
 

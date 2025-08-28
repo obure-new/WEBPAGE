@@ -12,6 +12,10 @@ import Claims from "./pages/Claims";
 import Ushirika from "./pages/Ushirika";
 import UshirikaGardens from "./components/Ushirika/UshirikaGardens";
 import UzuriPines from "./components/Ushirika/UzuriPines";
+import ContactUs from "./components/Ushirika/ContactUs";
+import News from "./components/Ushirika/News";
+import AboutUs  from "./components/Ushirika/AboutUs";
+import Asset from "./cicproducts/Asset";
 
 function App() {
   return (
@@ -26,13 +30,21 @@ function App() {
           <Route path="/corporate" element={<Corporate />} />
           <Route path="/cooperative" element={<Cooperative />} />
           <Route path="/claims" element={<Claims />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="products" element={<Asset />} />
         </Route>
 
         {/* Ushirika section */}
         <Route element={<UshirikaLayout />}>
           <Route path="/ushirika" element={<Ushirika />} />
           <Route path="/ushirika-gardens" element={<UshirikaGardens />} />
-          <Route path="uzuripines" element={<UzuriPines />} />
+          <Route path="/uzuri-pines" element={<UzuriPines />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/contact" element={<ContactUs />} />
+          
+
         </Route>
       </Routes>
     </Router>

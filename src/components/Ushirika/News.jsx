@@ -9,24 +9,24 @@ export default function BlogPage() {
       id: 1,
       title: "CIC Insurance to subdivide 200 acre land for easy sale",
       excerpt: "CIC Insurance Group #ticker:CIC will subdivide its 200-acre land in Kiambu County into plots and sell...",
-      image: "https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      date: "March 15, 2024",
+      image: "https://ushirikagardens.cic.co.ke/wp-content/uploads/2016/03/patrick-nyaga-cic-1024x576.webp",
+      date: "March 15, 2025",
       author: "CIC Group"
     },
     {
       id: 2,
       title: "Gated Community Living",
       excerpt: "Living in a gated community brings offers more than just a secure living environment—it also fosters a strong sense of community.",
-      image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      date: "March 10, 2024",
+      image: "https://ushirikagardens.cic.co.ke/wp-content/uploads/2016/03/shutterstock_1017132592-2.webp",
+      date: "March 10, 2025",
       author: "Property Team"
     },
     {
       id: 3,
       title: "Hass Consult Land Index Q3 '23",
       excerpt: "Land prices satellite towns grew by almost 3 times the rate of land in Nairobi...",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      date: "March 5, 2024",
+      image: "https://ushirikagardens.cic.co.ke/wp-content/uploads/2016/03/Nairobi_Skyline-1024x645.webp",
+      date: "March 5, 2025",
       author: "Market Analysis"
     }
   ];
@@ -39,22 +39,15 @@ export default function BlogPage() {
 
   const handleSearch = () => {
     console.log('Searching for:', searchTerm);
-    // Handle search logic here
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <h1 className="text-3xl font-bold text-gray-800">Ushirika Gardens Blog</h1>
-        </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        <div className="grid lg:grid-cols-4 gap-8">
+      <div className="max-w-5xl mx-auto px-6 py-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Main Content Area */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2 ps-8">
             {/* Featured Article */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
               <div className="relative">
@@ -63,7 +56,7 @@ export default function BlogPage() {
                   alt={blogPosts[0].title}
                   className="w-full h-64 object-cover"
                 />
-                <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <div className="absolute top-8 left-6 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Featured
                 </div>
               </div>
@@ -88,33 +81,31 @@ export default function BlogPage() {
             </div>
 
             {/* Blog Posts Grid */}
-            <div className="space-y-6">
+            <div className="space-y-3 ">
               {blogPosts.slice(1).map((post) => (
                 <div key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                  <div className="md:flex">
-                    <div className="md:w-1/3">
-                      <img 
-                        src={post.image}
-                        alt={post.title}
-                        className="w-full h-48 md:h-full object-cover"
-                      />
-                    </div>
-                    <div className="md:w-2/3 p-6">
-                      <h3 className="text-xl font-bold text-gray-800 mb-3 hover:text-red-600 cursor-pointer transition-colors">
-                        {post.title}
-                      </h3>
-                      <p className="text-gray-600 mb-4 leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center gap-4 text-sm text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{post.date}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <User className="w-4 h-4" />
-                          <span>{post.author}</span>
-                        </div>
+                  <div className="relative">
+                    <img 
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-64 object-cover"
+                    />
+                  </div>
+                  <div className="p-3">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-3 hover:text-red-600 cursor-pointer transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 mb-4 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>{post.date}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <User className="w-4 h-4" />
+                        <span>{post.author}</span>
                       </div>
                     </div>
                   </div>
@@ -124,19 +115,19 @@ export default function BlogPage() {
 
             {/* Load More Button */}
             <div className="text-center mt-8">
-              <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+              <button className="bg-red-600 hover:bg-yellow-400 hover:text-black text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
                 Load More Articles
               </button>
             </div>
           </div>
 
           {/* Sticky Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1.9">
             <div className="sticky top-8 space-y-6">
               {/* Blog Search */}
-              <div className="bg-white rounded-2xl shadow-lg p-6">
+              <div className="bg-white rounded-2xl shadow-lg p-15 min-h-[220px]">
                 <h3 className="text-lg font-bold text-gray-800 mb-4">Blog Search</h3>
-                <div className="flex gap-2">
+                <div className="flex gap-4">
                   <input
                     type="text"
                     placeholder="Search"
@@ -146,9 +137,9 @@ export default function BlogPage() {
                   />
                   <button 
                     onClick={handleSearch}
-                    className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 flex items-center gap-1"
+                    className="bg-red-600 hover:bg-red-700 text-white px-0.5  rounded-lg font-semibold transition-all duration-300 flex items-center gap-1"
                   >
-                    <Search className="w-4 h-4" />
+                    <Search className="w-1 h-2" />
                     Search
                   </button>
                 </div>

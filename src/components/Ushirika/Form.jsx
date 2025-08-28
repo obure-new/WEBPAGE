@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
-export default function RegistrationFormModal() {
-  const [isOpen, setIsOpen] = useState(true);
+export default function RegistrationFormModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -26,30 +25,21 @@ export default function RegistrationFormModal() {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert('Registration submitted successfully!');
-    setIsOpen(false);
+    onClose();
   };
 
   const closeModal = () => {
-    setIsOpen(false);
+    onClose();
   };
 
   if (!isOpen) {
-    return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-        <button 
-          onClick={() => setIsOpen(true)}
-          className="bg-red-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-red-700 transition-all"
-        >
-          Open Registration Form
-        </button>
-      </div>
-    );
+    return null;
   }
 
   return (
-    <div className="min-h-screen bg-gray-500/50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       {/* Modal Backdrop */}
-      <div className="fixed inset-0 bg-black/50 z-40" onClick={closeModal}></div>
+      <div className="fixed inset-0 bg-black/50" onClick={closeModal}></div>
       
       {/* Modal Content */}
       <div className="relative bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto z-50">
@@ -63,17 +53,17 @@ export default function RegistrationFormModal() {
 
         {/* Form Header */}
         <div className="text-center p-8 pb-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-red-600 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#a51d2d] mb-4">
             Ushirika Gardens Registration Form
           </h1>
           <p className="text-gray-600 text-sm">
-            Fields marked with an <span className="text-red-500">*</span> are required
+            Fields marked with an <span className="text-[#a51d2d]">*</span> are required
           </p>
         </div>
 
         {/* Form Content */}
         <div className="px-8 pb-8">
-          <div className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Row 1: Full Name and Email */}
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -83,8 +73,8 @@ export default function RegistrationFormModal() {
                   placeholder="Full Name *"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
-                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all placeholder-gray-500"
+                  requiredr
                 />
               </div>
               <div>
@@ -94,7 +84,7 @@ export default function RegistrationFormModal() {
                   placeholder="Email *"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all placeholder-gray-500"
                   required
                 />
               </div>
@@ -109,7 +99,7 @@ export default function RegistrationFormModal() {
                   placeholder="Phone*"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all placeholder-gray-500"
                   required
                 />
               </div>
@@ -120,7 +110,7 @@ export default function RegistrationFormModal() {
                   placeholder="City"
                   value={formData.city}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all placeholder-gray-500"
                 />
               </div>
             </div>
@@ -135,14 +125,14 @@ export default function RegistrationFormModal() {
                   name="propertyLookingFor"
                   value={formData.propertyLookingFor}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all bg-white"
                   required
                 >
                   <option value="">Select</option>
                   <option value="residential-plot">Residential Plot</option>
                   <option value="investment">Investment Opportunity</option>
                   <option value="family-home">Family Home Site</option>
-                  <option value="retirement-home">Retirement Home</option>
+                  <option value="retirement-home">Affordability</option>
                   <option value="commercial">Commercial Property</option>
                 </select>
               </div>
@@ -154,7 +144,7 @@ export default function RegistrationFormModal() {
                   name="purchaseTimeline"
                   value={formData.purchaseTimeline}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all bg-white"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all bg-white"
                   required
                 >
                   <option value="">Select</option>
@@ -176,7 +166,7 @@ export default function RegistrationFormModal() {
                 name="plotSize"
                 value={formData.plotSize}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all bg-white"
               >
                 <option value="">Select</option>
                 <option value="quarter-acre">¼ Acre</option>
@@ -195,20 +185,20 @@ export default function RegistrationFormModal() {
                 rows="4"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all resize-none placeholder-gray-500"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#a51d2d] focus:border-transparent outline-none transition-all resize-none placeholder-gray-500"
               ></textarea>
             </div>
 
             {/* Submit Button */}
             <div>
               <button
-                onClick={handleSubmit}
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                type="submit"
+                className="bg-[#a51d2d] hover:bg-yellow-400 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Submit
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

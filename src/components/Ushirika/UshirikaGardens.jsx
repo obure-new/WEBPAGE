@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, Home, Shield, Users, Zap, Trees, Building, Calendar, ExternalLink, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const heroSlides = [
   {
@@ -251,6 +252,7 @@ const UshirikaGardens = () => {
                 <p className="text-lg font-bold text-red-600">
                   Exclusive 144 Units. What's your address?
                 </p>
+                
               </div>
               <button 
                 className={`bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300 transform ${
