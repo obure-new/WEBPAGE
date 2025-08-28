@@ -11,6 +11,7 @@ import Cooperative from "./pages/Cooperative";
 import Claims from "./pages/Claims";
 import Ushirika from "./pages/Ushirika";
 import UshirikaGardens from "./components/Ushirika/UshirikaGardens";
+import UzuriPines from "./components/Ushirika/UzuriPines";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route element={<UshirikaLayout />}>
           <Route path="/ushirika" element={<Ushirika />} />
           <Route path="/ushirika-gardens" element={<UshirikaGardens />} />
+          <Route path="uzuripines" element={<UzuriPines />} />
         </Route>
       </Routes>
     </Router>
