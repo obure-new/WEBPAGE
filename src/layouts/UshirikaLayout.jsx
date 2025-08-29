@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import UshirikaHeader from "../components/data/UshirikaHeader";
 import UshirikaFooter from "../components/data/UshirikaFooter";
 import Form from "../components/Ushirika/Form";
+import Resources from "../components/Ushirika/Resources";
 
 const UshirikaLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

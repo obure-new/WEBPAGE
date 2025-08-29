@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Phone, Mail, MapPin, Home, Shield, Users, Zap, Trees, Building, Calendar, ExternalLink, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -137,87 +136,86 @@ const UshirikaGardens = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* HS */}
+      {/* Hero Section */}
       <section
-  id="home"
-  className="relative h-[70vh] lg:h-[80vh] overflow-hidden"
-  style={{
-    backgroundImage: `url(${heroSlides[currentSlide].image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
-  {/* Dark coor overlay  */}
-  <div className="absolute inset-0 bg-black/40 z-0"></div>
+        id="home"
+        className="relative h-[70vh] lg:h-[80vh] overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroSlides[currentSlide].image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40 z-0"></div>
 
-  <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
-    <div className="max-w-2xl text-white">
-      <h2 className="text-4xl lg:text-6xl font-bold mb-4 leading-tight">
-        {heroSlides[currentSlide].title}
-      </h2>
-      <h3 className="text-xl lg:text-2xl mb-4 text-yellow-200">
-        {heroSlides[currentSlide].subtitle}
-      </h3>
-      <p className="text-lg lg:text-xl mb-8 opacity-90">
-        {heroSlides[currentSlide].description}
-      </p>
-      <div className="flex flex-col sm:flex-row gap-4">
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-center">
+          <div className="max-w-2xl text-white">
+            <h2 className="text-4xl lg:text-6xl font-bold mb-4 leading-tight">
+              {heroSlides[currentSlide].title}
+            </h2>
+            <h3 className="text-xl lg:text-2xl mb-4 text-yellow-200">
+              {heroSlides[currentSlide].subtitle}
+            </h3>
+            <p className="text-lg lg:text-xl mb-8 opacity-90">
+              {heroSlides[currentSlide].description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                className={`bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300 transform ${
+                  buttonPressed.explore
+                    ? "scale-95 bg-yellow-500 text-black shadow-inner"
+                    : "hover:scale-105"
+                }`}
+                onClick={() => handleButtonClick("explore")}
+              >
+                Explore Plots
+              </button>
+              <button
+                className={`border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300 transform ${
+                  buttonPressed.learn
+                    ? "scale-95 bg-yellow-500 text-black border-yellow-500 shadow-inner"
+                    : "hover:scale-105"
+                }`}
+                onClick={() => handleButtonClick("learn")}
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation Arrows */}
         <button
-          className={`bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition-all duration-300 transform ${
-            buttonPressed.explore
-              ? "scale-95 bg-yellow-500 text-black shadow-inner"
-              : "hover:scale-105"
-          }`}
-          onClick={() => handleButtonClick("explore")}
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-yellow-400/80 p-3 rounded-full transition-all duration-300 hover:scale-110"
         >
-          Explore Plots
+          <ChevronLeft className="w-6 h-6 text-white hover:text-black" />
         </button>
         <button
-          className={`border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300 transform ${
-            buttonPressed.learn
-              ? "scale-95 bg-yellow-500 text-black border-yellow-500 shadow-inner"
-              : "hover:scale-105"
-          }`}
-          onClick={() => handleButtonClick("learn")}
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-yellow-400/80 p-3 rounded-full transition-all duration-300 hover:scale-110"
         >
-          Learn More
+          <ChevronRight className="w-6 h-6 text-white hover:text-black" />
         </button>
-      </div>
-    </div>
-  </div>
 
-  {/* Nav Arrows */}
-  <button
-    onClick={prevSlide}
-    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-yellow-400/80 p-3 rounded-full transition-all duration-300 hover:scale-110"
-  >
-    <ChevronLeft className="w-6 h-6 text-white hover:text-black" />
-  </button>
-  <button
-    onClick={nextSlide}
-    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-yellow-400/80 p-3 rounded-full transition-all duration-300 hover:scale-110"
-  >
-    <ChevronRight className="w-6 h-6 text-white hover:text-black" />
-  </button>
+        {/* Slide Indicator */}
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+                index === currentSlide
+                  ? "bg-yellow-400"
+                  : "bg-white/50 hover:bg-white/80"
+              }`}
+            />
+          ))}
+        </div>
+      </section>
 
-  {/* Slide Indicator */}
-  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
-    {heroSlides.map((_, index) => (
-      <button
-        key={index}
-        onClick={() => setCurrentSlide(index)}
-        className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-          index === currentSlide
-            ? "bg-yellow-400"
-            : "bg-white/50 hover:bg-white/80"
-        }`}
-      />
-    ))}
-  </div>
-</section>
-
-
-      {/* About Sec */}
+      {/* About Section */}
       <section id="about" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
           <p className="text-lg text-gray-600 mb-8 max-w-4xl mx-auto">
@@ -233,8 +231,8 @@ const UshirikaGardens = () => {
         </div>
       </section>
 
-      {/* Ujima Park Section */}
-      <section className="py-16 bg-white">
+      {/* Ujima Park Section - Added ID for navigation */}
+      <section id="ujima-park" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -328,7 +326,7 @@ const UshirikaGardens = () => {
         </div>
       </section>
 
-      {/* Amenities Sec */}
+      {/* Amenities Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -398,51 +396,50 @@ const UshirikaGardens = () => {
           </div>
         </div>
       </section>
+
       {/* Latest News */}
-<section id="news" className="py-16 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <h2 className="text-3xl lg:text-4xl font-bold text-red-600 text-center mb-12">
-      Latest News
-    </h2>
+      <section id="news" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl lg:text-4xl font-bold text-red-600 text-center mb-12">
+            Latest News
+          </h2>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {newsItems.map((item, index) => (
-        <div
-          key={index}
-          className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
-        >
-          {/* Image Sec */}
-          <div className="h-48 relative overflow-hidden">
-            <img
-              src={item.image}
-              alt={item.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {newsItems.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow"
+              >
+                {/* Image Section */}
+                <div className="h-48 relative overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
 
-          {/* Content Sec */}
-          <div className="p-6">
-            <h3 className="font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
-              {item.title}
-            </h3>
-            <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-              {item.excerpt}
-            </p>
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500">{item.readTime}</span>
-              <button className="bg-[#a51d2d] text-white px-4 py-2 rounded text-sm hover:bg-yellow-400 transition-colors flex items-center space-x-1">
-                <span>Read More</span>
-                <ExternalLink className="w-3 h-3" />
-              </button>
-            </div>
+                {/* Content Section */}
+                <div className="p-6">
+                  <h3 className="font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                    {item.excerpt}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-500">{item.readTime}</span>
+                    <button className="bg-[#a51d2d] text-white px-4 py-2 rounded text-sm hover:bg-yellow-400 transition-colors flex items-center space-x-1">
+                      <span>Read More</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-
+      </section>
     </div>
   );
 };

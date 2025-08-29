@@ -44,6 +44,40 @@ const Header = ({ onScheduleVisit }) => {
     closeDropdown();
   };
 
+  // Function to handle Ujima Park navigation within Ushirika Gardens page
+  const handleUjimaNavigation = () => {
+    // Navigate to Ushirika Gardens page first
+    if (location.pathname !== '/ushirika-gardens') {
+      navigate('/ushirika-gardens');
+      // Wait for navigation to complete, then scroll to Ujima section
+      setTimeout(() => {
+        const element = document.getElementById('ujima-park');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    } else {
+      // If already on Ushirika Gardens page, scroll directly to Ujima section
+      const element = document.getElementById('ujima-park');
+      if (element) {
+        element.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+    closeDropdown();
+  };
+
+  // Function to handle Resources navigation with tab parameter
+  const handleResourcesNavigation = (tab = 'downloads') => {
+    navigate(`/resources?tab=${tab}`);
+    closeDropdown();
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (!event.target.closest('.dropdown-container')) {
@@ -61,6 +95,18 @@ const Header = ({ onScheduleVisit }) => {
       const sectionId = location.hash.substring(1);
       setTimeout(() => {
         const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+    // Handle Ujima Park hash navigation
+    if (location.pathname === '/ushirika-gardens' && location.hash === '#ujima-park') {
+      setTimeout(() => {
+        const element = document.getElementById('ujima-park');
         if (element) {
           element.scrollIntoView({ 
             behavior: 'smooth',
@@ -108,33 +154,42 @@ const Header = ({ onScheduleVisit }) => {
             Home
           </Link>
 
-          {/* Ushirika Gardens Dropdown */}
+          {/* Ushirika Gardens Dropdown - Updated */}
           <div className="relative dropdown-container">
-            <button
+            <Link
+              to="/ushirika-gardens"
               className={`transition-colors flex items-center space-x-1 ${
-                isActiveRoute('/ushirika') || isActiveRoute('/uzuri-pines')
+                isActiveRoute('/ushirika-gardens') || isActiveRoute('/uzuri-pines')
                   ? 'text-red-600 border-b-2 border-red-600 pb-1'
                   : 'text-gray-700 hover:text-red-600'
               }`}
-              onClick={() => handleDropdownToggle('ushirika')}
               onMouseEnter={() => setActiveDropdown('ushirika')}
             >
               <span>Ushirika Gardens</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg 
+                className="w-4 h-4" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDropdownToggle('ushirika');
+                }}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </button>
+            </Link>
             {activeDropdown === 'ushirika' && (
               <div
                 className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-lg border z-50"
                 onMouseLeave={closeDropdown}
               >
-                <Link
-                  to="/ushirika/ujima-park"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                <button
+                  onClick={handleUjimaNavigation}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Ujima Park
-                </Link>
+                </button>
                 <Link
                   to="/uzuri-pines"
                   className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
@@ -227,43 +282,52 @@ const Header = ({ onScheduleVisit }) => {
 
           {/* Resources Dropdown */}
           <div className="relative dropdown-container">
-            <button
+            <Link
+              to="/resources"
               className={`transition-colors flex items-center space-x-1 ${
                 isActiveRoute('/resources')
                   ? 'text-red-600 border-b-2 border-red-600 pb-1'
                   : 'text-gray-700 hover:text-red-600'
               }`}
-              onClick={() => handleDropdownToggle('resources')}
               onMouseEnter={() => setActiveDropdown('resources')}
             >
               <span>Resources</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg 
+                className="w-4 h-4" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleDropdownToggle('resources');
+                }}
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
-            </button>
+            </Link>
             {activeDropdown === 'resources' && (
               <div
                 className="absolute top-full left-0 mt-1 w-48 bg-white shadow-lg rounded-lg border z-50"
                 onMouseLeave={closeDropdown}
               >
-                <Link
-                  to="/resources/downloads"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                <button
+                  onClick={() => handleResourcesNavigation('downloads')}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Downloads
-                </Link>
-                <Link
-                  to="/resources/videos"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                </button>
+                <button
+                  onClick={() => handleResourcesNavigation('videos')}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Videos
-                </Link>
-                <Link
-                  to="/resources/gallery"
-                  className="block px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
+                </button>
+                <button
+                  onClick={() => handleResourcesNavigation('gallery')}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-red-600 transition-colors"
                 >
                   Gallery
-                </Link>
+                </button>
               </div>
             )}
           </div>
@@ -321,14 +385,26 @@ const Header = ({ onScheduleVisit }) => {
               Home
             </Link>
             
-            {/* Mobile Dropdowns */}
+            {/* Mobile Ushirika Gardens Dropdown - Updated */}
             <div className="space-y-2">
-              <span className="block text-gray-700 font-semibold">Ushirika Gardens</span>
+              <Link to="/ushirika-gardens" className="block text-gray-700 font-semibold hover:text-red-600">
+                Ushirika Gardens
+              </Link>
               <div className="pl-4 space-y-2">
-                <Link to="/ushirika/ujima-park" className="block text-gray-600 hover:text-red-600">
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleUjimaNavigation();
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Ujima Park
-                </Link>
-                <Link to="/uzuri-pines" className="block text-gray-600 hover:text-red-600">
+                </button>
+                <Link 
+                  to="/uzuri-pines" 
+                  className="block text-gray-600 hover:text-red-600"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Uzuri Pines
                 </Link>
               </div>
@@ -383,17 +459,37 @@ const Header = ({ onScheduleVisit }) => {
             </div>
             
             <div className="space-y-2">
-              <span className="block text-gray-700 font-semibold">Resources</span>
+              <Link to="/resources" className="block text-gray-700 font-semibold hover:text-red-600">
+                Resources
+              </Link>
               <div className="pl-4 space-y-2">
-                <Link to="/resources/downloads" className="block text-gray-600 hover:text-red-600">
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleResourcesNavigation('downloads');
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Downloads
-                </Link>
-                <Link to="/resources/videos" className="block text-gray-600 hover:text-red-600">
+                </button>
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleResourcesNavigation('videos');
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Videos
-                </Link>
-                <Link to="/resources/gallery" className="block text-gray-600 hover:text-red-600">
+                </button>
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    handleResourcesNavigation('gallery');
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-red-600"
+                >
                   Gallery
-                </Link>
+                </button>
               </div>
             </div>
             

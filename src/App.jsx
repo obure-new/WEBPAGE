@@ -15,7 +15,10 @@ import UzuriPines from "./components/Ushirika/UzuriPines";
 import ContactUs from "./components/Ushirika/ContactUs";
 import News from "./components/Ushirika/News";
 import AboutUs  from "./components/Ushirika/AboutUs";
+import Resources from "./components/Ushirika/Resources";
 import Asset from "./cicproducts/Asset";
+import LifeInsurance from "./cicproducts/LifeInsurance";
+import GeneralInsurance from "./cicproducts/GeneralInsurance";
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path="/claims" element={<Claims />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="products" element={<Asset />} />
+          <Route path="/assetmanagement" element={<Asset />} />
+          <Route path="/lifeinsurance" element={<LifeInsurance />} />
+          <Route path="/generalinsurance" element={<GeneralInsurance />} />
         </Route>
 
         {/* Ushirika section */}
@@ -43,6 +49,7 @@ function App() {
           <Route path="/news" element={<News />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/resources" element={<Resources />} />
           
 
         </Route>

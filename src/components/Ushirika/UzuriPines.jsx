@@ -54,7 +54,7 @@ const UzuriPines = () => {
           alt="Modern House"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 z-20 flex items-center justify-center">
+        <div className="absolute inset-0 z-20 flex items-center justify-left">
           <div className="text-center text-white px-6">
             <h1 className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
               Uzuri Pines

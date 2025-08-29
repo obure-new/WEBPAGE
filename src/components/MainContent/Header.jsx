@@ -16,7 +16,7 @@ const Header = () => {
     { name: 'CAREER', href: '#' },
     { name: 'CONTACT US', href: '#' },
     { name: 'COMPLAINTS', href: '#' },
-  { name: 'USHIRIKA GARDENS', href: '/ushirika-gardens' },
+    { name: 'USHIRIKA GARDENS', href: '/ushirika-gardens' },
   ];
 
   const secondaryNavItems = [
@@ -67,7 +67,20 @@ const Header = () => {
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex flex-1 justify-center space-x-4">
                 {primaryNavItems.map((item) => (
-                  <div key={item.name} className="relative group">
+                  <div 
+                    key={item.name} 
+                    className="relative group"
+                    onMouseEnter={() => {
+                      if (item.hasDropdown) {
+                        handleDropdownMouseEnter(item.name);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      if (item.hasDropdown) {
+                        handleDropdownMouseLeave();
+                      }
+                    }}
+                  >
                     {item.href && item.href !== '#' ? (
                       <Link
                         to={item.href}
@@ -81,6 +94,50 @@ const Header = () => {
                         {item.name}
                         {item.hasDropdown && <ChevronDown className="ml-1 h-4 w-4" />}
                       </button>
+                    )}
+
+                    {/* Insurance Products Dropdown */}
+                    {item.name === 'INSURANCE PRODUCTS' && activeDropdown === 'INSURANCE PRODUCTS' && (
+                      <div 
+                        className="absolute left-1/2 transform -translate-x-1/2 top-full mt-0 w-[300px] bg-white rounded-2xl shadow-xl border border-gray-200 z-[100]"
+                        onMouseEnter={() => {
+                          clearHoverTimeout();
+                          handleDropdownMouseEnter('INSURANCE PRODUCTS');
+                        }}
+                        onMouseLeave={handleDropdownMouseLeave}
+                      >
+                        <div className="p-6">
+                          <ul className="space-y-3">
+                            <li>
+                              <Link 
+                                to="/generalinsurance" 
+                                className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block py-1"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                General Insurance
+                              </Link>
+                            </li>
+                            <li>
+                              <Link 
+                                to="/lifeinsurance" 
+                                className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block py-1"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                Life Insurance
+                              </Link>
+                            </li>
+                            <li>
+                              <Link 
+                                to="/assetmanagement" 
+                                className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block py-1"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                Asset Management
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     )}
                   </div>
                 ))}
@@ -108,8 +165,8 @@ const Header = () => {
           </div>
         </div>
 
-  {/* Secondary Navigation */}
-  <div className="bg-yellow-500 mt-[64px]">
+        {/* Secondary Navigation */}
+        <div className="bg-yellow-500 mt-[64px]">
           <div className="max-w-14xl mx-auto px-4 sm:px-4 lg:px-4">
             <div className="flex items-center justify-between h-12">
               {/* Search */}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
 
-const Asset = () => {
+const LifeInsurance = () => {
   const [selectedMember, setSelectedMember] = useState(null);
   const [activeTab, setActiveTab] = useState('Directors');
 
@@ -11,49 +11,49 @@ const Asset = () => {
         id: 1,
         name: "Cornelius Ashira",
         position: "BOARD CHAIRMAN",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/11/CORNELIUS-ASHIRA-245x245.jpg",
+        image: "/api/placeholder/200/200",
         bio: "Cornelius Odhiambo Ashira, aged 56, joined the Board in 2014. Mr. Ashira is the Director Representing Nairobi Province Parastatal based societies. He is currently a board member of Kumbu Kumbu Sacco and the Chairman of the Credit Committee. Mr. Ashira is also a delegate at KUSCCO Limited. He worked with International Center for Insect Physiology and Ecology between 1988 and 1990 as a laboratory technician. Currently, the Director is working at the Institute of Primate Research, Karen. He is a member of the institute of Directors of Kenya."
       },
       {
         id: 2,
         name: "Mr. Humphrey Gathungu",
         position: "MANAGING DIRECTOR",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2022/12/Humphrey-Gathungu-1-e1724078043720.png",
+        image: "/api/placeholder/200/200",
         bio: "Mr. Humphrey Gathungu is the Managing Director of CIC Asset Management Ltd. He brings extensive experience in investment management and financial services to the organization."
       },
       {
         id: 3,
         name: "Mr. Patrick Nyaga",
         position: "GROUP MANAGING DIRECTOR & CEO",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/11/PATRICK-NYAGA-Group-CEO-245x245.png",
+        image: "/api/placeholder/200/200",
         bio: "Mr. Patrick Nyaga serves as the Group Managing Director & CEO, leading the strategic direction of CIC Group with extensive experience in insurance and financial services."
       },
       {
         id: 4,
         name: "Joseph Maina Kamau",
         position: "BOARD MEMBER",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/11/JOSEPH-KAMAU-245x245.jpg",
+        image: "/api/placeholder/200/200",
         bio: "Joseph Maina Kamau is an experienced board member contributing to the governance and strategic oversight of CIC Asset Management Ltd."
       },
       {
         id: 5,
         name: "Abel Amuyunzu",
         position: "DIRECTOR",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2024/01/Abel-Amuyunzu-5.webp",
+        image: "/api/placeholder/200/200",
         bio: "Abel Amuyunzu serves as a Director, bringing valuable expertise and insights to the board of CIC Asset Management Ltd."
       },
       {
         id: 6,
         name: "Wangui Maranga",
         position: "INDEPENDENT NON-EXECUTIVE DIRECTOR",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2024/09/Wangui-Maranga-headshot-scaled-e1726818534648-245x245.jpg",
+        image: "/api/placeholder/200/200",
         bio: "Wangui Maranga is an Independent Non-Executive Director, providing independent oversight and strategic guidance to the organization."
       },
       {
         id: 7,
         name: "Alice Kilonzo",
         position: "INDEPENDENT NON-EXECUTIVE DIRECTOR",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2024/09/kilonzo-245x245.jpg",
+        image: "/api/placeholder/200/200",
         bio: "Alice Kilonzo serves as an Independent Non-Executive Director, contributing her expertise to the board's decision-making processes."
       }
     ],
@@ -62,35 +62,35 @@ const Asset = () => {
         id: 8,
         name: "Mr. Humphrey Gathungu",
         position: "MANAGING DIRECTOR",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2022/12/Humphrey-Gathungu-1-e1724078043720.png",
+        image: "/api/placeholder/200/200",
         bio: "Mr. Humphrey Gathungu serves as the Managing Director of CIC Asset Management Ltd, overseeing the day-to-day operations and strategic implementation."
       },
       {
         id: 9,
         name: "Susan Robi",
         position: "DIRECTOR, RISK AND COMPLIANCE",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/SUSAN-ROBI-245x245.png",
+        image: "/api/placeholder/200/200",
         bio: "Susan Robi is responsible for risk management and compliance oversight, ensuring regulatory adherence and risk mitigation strategies."
       },
       {
         id: 10,
         name: "Elizabeth Njuguna",
         position: "HUMAN RESOURCE BUSINESS PARTNER",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/Elizabeth-Njuguna-min.png",
+        image: "/api/placeholder/200/200",
         bio: "Elizabeth Njuguna manages human resource functions and serves as a strategic business partner to various departments."
       },
       {
         id: 11,
         name: "Ruth Ngaruiya",
         position: "HEAD OF UNIT TRUST",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/09/Ruth-Ngaruiya.jpg",
+        image: "/api/placeholder/200/200",
         bio: "Ruth Ngaruiya leads the unit trust division, managing collective investment schemes and unit trust operations."
       },
       {
         id: 12,
         name: "Sylvia Kimani",
         position: "BUSINESS DEVELOPMENT MANAGER",
-        image: "https://ke.cicinsurancegroup.com/wp-content/uploads/2021/10/Sylvia-Kimani-min.png",
+        image: "/api/placeholder/200/200",
         bio: "Sylvia Kimani is responsible for identifying and developing new business opportunities and maintaining client relationships."
       },
       {
@@ -219,11 +219,6 @@ const Asset = () => {
               Markets Authority, Kenya in June 2009. In 2013, CICAM was licensed by the Retirement Benefits Authority, Kenya
               pursuant to fulfilling the mandatory statutory, operational capacity and relevant professional expertise as prescribed
               under the Act.
-            </p>
-            <p>
-              The Company has remained a key player in the investment space and continues to record exemplary performance. It is
-              by virtue of this performance that the company share capital base was increased from Ksh. 11 Million to Ksh. 311 Million
-              by way of capital injection in 2011 by CIC Insurance Group Ltd to support and sustain future growth.
             </p>
             <p>
               CIC Asset Management Ltd (CICAM) has specialized in the management of investment portfolios for pension fund
@@ -424,4 +419,4 @@ const Asset = () => {
   );
 };
 
-export default Asset;
+export default LifeInsurance;
