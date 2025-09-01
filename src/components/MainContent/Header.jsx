@@ -500,6 +500,36 @@ const Header = () => {
                         </div>
                       </div>
                     )}
+
+                    {/* Self-Service Dropdown */}
+                    {item.name === 'Self-Service' && activeDropdown === 'Self-Service' && (
+                      <div 
+                        className="absolute left-1/2 transform -translate-x-1/2 top-full mt-0 w-[400px] bg-white rounded-2xl shadow-xl border border-gray-200 z-[100]"
+                        onMouseEnter={() => {
+                          clearHoverTimeout();
+                          handleDropdownMouseEnter('Self-Service');
+                        }}
+                        onMouseLeave={handleDropdownMouseLeave}
+                      >
+                        <div className="p-6">
+                          <ul className="space-y-2">
+                            {[
+                              'Online Portal',
+                              'Mobile App',
+                              'Policy Management',
+                              'Claims Submission',
+                              'Premium Payment'
+                            ].map((service) => (
+                              <li key={service}>
+                                <a href="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
+                                  {service}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </nav>
@@ -517,44 +547,238 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Red Sidebar */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed top-16 left-0 right-0 z-40">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
-              {primaryNavItems.map((item) => (
-                item.href && item.href !== '#' ? (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left"
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <button key={item.name} className="text-gray-700 hover:text-red-600 block px-3 py-2 text-base font-medium w-full text-left">
-                    {item.name}
-                  </button>
-                )
-              ))}
-              <div className="border-t border-gray-200 pt-3">
-                {secondaryNavItems.map((item) => (
-                  item.hasDropdown || item.href === '#' ? (
-                    <button key={item.name} className={`block px-3 py-2 text-base font-medium w-full text-left ${
-                      location.pathname === item.href ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-600'
-                    }`}>
-                      {item.name}
-                    </button>
-                  ) : (
-                    <Link key={item.name} to={item.href} className={`block px-3 py-2 text-base font-medium w-full text-left ${
-                      location.pathname === item.href ? 'text-red-600 bg-red-50' : 'text-gray-700 hover:text-red-600'
-                    }`}>
-                      {item.name}
-                    </Link>
-                  )
-                ))}
+          <>
+            {/* Backdrop */}
+            <div 
+              className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 top-16"
+              onClick={() => setIsMenuOpen(false)}
+            />
+            
+            {/* Sidebar */}
+            <div className="lg:hidden fixed top-16 left-0 bottom-0 z-50 w-80 bg-[#a51d2d] text-white overflow-y-auto">
+              <div className="p-6">
+                {/* Primary Nav Items */}
+                <div className="space-y-4 mb-6">
+                  {primaryNavItems.map((item) => (
+                    <div key={item.name}>
+                      {item.href && item.href !== '#' ? (
+                        <Link
+                          to={item.href}
+                          className="text-white hover:text-yellow-200 block py-2 text-lg font-medium transition-colors relative group"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.name}
+                          <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                        </Link>
+                      ) : (
+                        <button className="text-white hover:text-yellow-200 block py-2 text-lg font-medium w-full text-left transition-colors relative group">
+                          {item.name}
+                          <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Secondary Nav Items */}
+                <div className="space-y-2">
+                  {secondaryNavItems.map((item) => (
+                    <div key={item.name} className="border-b border-red-400 border-opacity-30 pb-2">
+                      {item.hasDropdown ? (
+                        <div>
+                          <button 
+                            className="text-white font-semibold text-base py-2 w-full text-left flex items-center justify-between relative group"
+                            onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
+                          >
+                            {item.name}
+                            <ChevronDown className={`h-4 w-4 transition-transform ${activeDropdown === item.name ? 'rotate-180' : ''}`} />
+                            <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                          </button>
+                          
+                          {/* Dropdown Content */}
+                          {activeDropdown === item.name && (
+                            <div className="mt-2 pl-4 space-y-2">
+                              {item.name === 'Individual Solutions' && (
+                                <div>
+                                  <div className="text-yellow-200 text-sm mb-3 leading-relaxed">
+                                    Protect & grow what you have. We are here to help you plan a better future.
+                                  </div>
+                                  {[
+                                    'Easy Bima',
+                                    'Motor Private Insurance',
+                                    'Motor Commercial Insurance',
+                                    'Home Insurance',
+                                    'Seniors Mediplan',
+                                    'Money Market Fund',
+                                    'Personal Accident',
+                                    'Academia',
+                                    'Jipange Plus',
+                                    'Haba Haba na CIC',
+                                    'Smart Saver',
+                                    'Professional Indemnity'
+                                  ].map((product) => {
+                                    const hash = product.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                                    return (
+                                      <Link
+                                        key={product}
+                                        to={`/individual#${hash}`}
+                                        className="block text-white text-sm py-1 hover:text-yellow-200 transition-colors relative group"
+                                        onClick={() => setIsMenuOpen(false)}
+                                      >
+                                        {product}
+                                        <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              )}
+                              
+                              {item.name === 'Business Solutions' && (
+                                <div>
+                                  <div className="text-yellow-200 text-sm mb-3 leading-relaxed">
+                                    We take care of your business, so that you can take care of business.
+                                  </div>
+                                  {[
+                                    'Easy Bima',
+                                    'Motor Commercial Insurance',
+                                    'Motor Private',
+                                    'WIBA',
+                                    'Personal Accident',
+                                    'SME Medipack',
+                                    'Money Market Fund',
+                                    'Fire Insurance',
+                                    'Income Draw Down',
+                                    'Jipange Plus',
+                                    'Property Insurance'
+                                  ].map((product) => (
+                                    <Link
+                                      key={product}
+                                      to="#"
+                                      className="block text-white text-sm py-1 hover:text-yellow-200 transition-colors relative group"
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {product}
+                                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+
+                              {item.name === 'Corporate Solutions' && (
+                                <div>
+                                  <div className="text-yellow-200 text-sm mb-3 leading-relaxed">
+                                    You have worked hard to get here, we are here to make sure that you keep going.
+                                  </div>
+                                  {[
+                                    'Afya Bora',
+                                    'Motor Commercial Insurance',
+                                    'Motor Private',
+                                    'WIBA',
+                                    'Personal Accident',
+                                    'Corporate Medisure',
+                                    'Money Market Fund',
+                                    'Income Draw Down',
+                                    'Fire Insurance',
+                                    'Jipange Plus',
+                                    'Property Insurance'
+                                  ].map((product) => (
+                                    <Link
+                                      key={product}
+                                      to="#"
+                                      className="block text-white text-sm py-1 hover:text-yellow-200 transition-colors relative group"
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {product}
+                                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+
+                              {item.name === 'Cooperative Solutions' && (
+                                <div>
+                                  <div className="text-yellow-200 text-sm mb-3 leading-relaxed">
+                                    Let us pull together. In the direction of your success.
+                                  </div>
+                                  {[
+                                    'Motor Commercial Insurance',
+                                    'Money Market Fund',
+                                    'Loan Guard',
+                                    'Board Endowment',
+                                    'Employee Group Life',
+                                    'WIBA',
+                                    'Group Credit Life',
+                                    'Fire Industrial',
+                                    'CoopCare Health Insurance',
+                                    'CIC Umbrella Retirement Benefits Scheme'
+                                  ].map((product) => (
+                                    <Link
+                                      key={product}
+                                      to="#"
+                                      className="block text-white text-sm py-1 hover:text-yellow-200 transition-colors relative group"
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {product}
+                                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+
+                              {item.name === 'Self-Service' && (
+                                <div>
+                                  <div className="text-yellow-200 text-sm mb-3 leading-relaxed">
+                                    Quick and easy self-service options for your convenience.
+                                  </div>
+                                  {[
+                                    'Online Portal',
+                                    'Mobile App',
+                                    'Policy Management',
+                                    'Claims Submission',
+                                    'Premium Payment'
+                                  ].map((service) => (
+                                    <Link
+                                      key={service}
+                                      to="#"
+                                      className="block text-white text-sm py-1 hover:text-yellow-200 transition-colors relative group"
+                                      onClick={() => setIsMenuOpen(false)}
+                                    >
+                                      {service}
+                                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      ) : item.href === '#' ? (
+                        <button className={`text-white font-semibold text-base py-2 w-full text-left relative group ${
+                          location.pathname === item.href ? 'text-yellow-200' : 'hover:text-yellow-200'
+                        } transition-colors`}>
+                          {item.name}
+                          <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                        </button>
+                      ) : (
+                        <Link 
+                          to={item.href} 
+                          className={`text-white font-semibold text-base py-2 block w-full text-left relative group ${
+                            location.pathname === item.href ? 'text-yellow-200' : 'hover:text-yellow-200'
+                          } transition-colors`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.name}
+                          <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></div>
+                        </Link>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </header>
     </div>
