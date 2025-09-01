@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Download } from 'lucide-react';
 
-const ComplaintForm = () => {
+const Complaint = () => {
   const [formData, setFormData] = useState({
     name: '',
     idNumber: '',
@@ -29,29 +29,7 @@ const ComplaintForm = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div 
-        className="relative h-96 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')"
-        }}
-      >
-        <div className="absolute inset-0 flex items-center justify-start">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl font-bold text-white mb-4">
-                Need help? We are here for you.
-              </h1>
-              <p className="text-lg text-gray-200 leading-relaxed">
-                As an award-winning insurance group, we pride ourselves in our clarity and availability to 
-                further assist. Feel free to reach out to us with any questions you might have. We're available 
-                on the social channels listed below, as well as through our email and phone number. While 
-                you're here, why not talk to us through the form below?
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Form Section */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -209,4 +187,4 @@ const ComplaintForm = () => {
   );
 };
 
-export default ComplaintForm;
+export default Complaint;

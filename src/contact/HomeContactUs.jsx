@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Phone, MessageCircle, Mail, MessageSquare } from 'lucide-react';
 
-const ContactUs = () => {
+const HomeContactUs = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -296,4 +296,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default HomeContactUs;

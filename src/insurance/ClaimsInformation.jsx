@@ -43,7 +43,7 @@ const ClaimsInformation = () => {
               Make a claim fast and easy with just a few steps.
             </h1>
             <div className="flex gap-4">
-              <button className="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105 hover:bg-[#a51d2d] hover:text-white shadow-lg">
+              <button className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105 hover:bg-[#a51d2d] hover:text-white shadow-lg">
                 File a Claim
               </button>
               <button className="bg-yellow-400 text-black px-8 py-3 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105 hover:bg-[#a51d2d] hover:text-white shadow-lg">

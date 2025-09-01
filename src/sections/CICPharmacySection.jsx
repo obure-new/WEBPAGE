@@ -17,7 +17,7 @@ const mexicanRed = "text-[#a51d2d]";
 const white = "bg-white";
 
 const pharmacySlide = {
-  image: "/images/carousel/slide4.jpg",
+  image: "https://t4.ftcdn.net/jpg/07/31/72/31/360_F_731723198_EbtgBegmeVGlcg6bPYYAKUadl8oZJrvY.jpg",
   title: "Welcome to CIC Pharmacy <br /> Caring Beyond Prescriptions",
   description: "",
 };
@@ -65,7 +65,7 @@ const CICPharmacySection = () => (
         )}
         <a
           href="#services"
-          className="bg-yellow-400 hover:bg-[#a51d2d] text-white font-semibold px-4 py-2 rounded-full shadow transition text-base"
+          className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold transition-colors duration-300 transform hover:scale-105 hover:bg-[#a51d2d] hover:text-white"
         >
           Learn More
         </a>
@@ -120,7 +120,7 @@ const CICPharmacySection = () => (
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-[#a51d2d] mb-8">Convenience at your doorstep</h2>
         <div className="mb-8">
-          <button className="bg-yellow-400 hover:bg-[#a51d2d] text-white font-semibold px-12 py-4 rounded-full text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg">
+          <button className="bg-yellow-400 hover:bg-[#a51d2d] hover:text-white text-black font-semibold px-12 py-4 rounded-full text-lg transition-all duration-300 hover:transform hover:scale-105 shadow-lg">
             Order now
           </button>
         </div>

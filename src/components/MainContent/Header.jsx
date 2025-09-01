@@ -9,13 +9,13 @@ const Header = () => {
   const location = useLocation();
 
   const primaryNavItems = [
-    { name: 'CIC GROUP', href: '#' },
+    { name: 'CIC GROUP', href: '/cic-group' },
     { name: 'INSURANCE PRODUCTS', href: '#', hasDropdown: true },
-    { name: 'LEADERSHIP', href: '#' },
-    { name: 'EVENTS', href: '#' },
-    { name: 'CAREER', href: '#' },
-    { name: 'CONTACT US', href: '#' },
-    { name: 'COMPLAINTS', href: '#' },
+    { name: 'BLOGS', href: '/blog' },
+    { name: 'EVENTS', href: '/events' },
+    { name: 'CAREER', href: '/career' },
+    { name: 'CONTACT US', href: '/homecontactus' },
+    { name: 'COMPLAINTS', href: '/complaints' },
     { name: 'USHIRIKA GARDENS', href: '/ushirika-gardens' },
   ];
 
@@ -31,7 +31,6 @@ const Header = () => {
   ];
 
   const handleDropdownMouseEnter = (dropdownName) => {
-    // Clear any existing timeout
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
@@ -59,7 +58,7 @@ const Header = () => {
         <div className="bg-white shadow-sm border-b border-gray-200 fixed top-0 left-0 right-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-              {/* Logo  */}
+              {/* Logo */}
               <div className="flex-shrink-0 flex items-center m-0 p-0">
                 <img src="https://cdn.brandfetch.io/idlMz2AeCB/w/554/h/448/theme/dark/logo.png?c=1bxid64Mup7aczewSAYMX&t=1751871656810" alt="Logo" className="h-10 w-auto m-0 p-0" />
               </div>
@@ -141,10 +140,9 @@ const Header = () => {
                     )}
                   </div>
                 ))}
-                
               </nav>
 
-              {/* Right */}
+              {/* Right Side */}
               <div className="flex items-center space-x-4">
                 {/* Social Icons */}
                 <div className="hidden md:flex items-center space-x-5">
@@ -255,7 +253,7 @@ const Header = () => {
                                 Protect & grow what you have. We are here to help you plan a better future.
                               </div>
                               <div className="text-[#a51d2d] text-sm font-medium mb-3 text-center">
-                                Need personal assistance? <a href="#" className="underline hover:no-underline">Contact Us</a>
+                                Need personal assistance? <Link to="/contact" className="underline hover:no-underline">Contact Us</Link>
                               </div>
                               <div className="flex space-x-4">
                                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 transition-colors">
@@ -272,36 +270,35 @@ const Header = () => {
                           </div>
                           {/* Right side */}
                           <div className="w-1/2 p-6">
-                              <ul className="space-y-2">
-                                {[
-                                  'Easy Bima',
-                                  'Motor Private Insurance',
-                                  'Motor Commercial Insurance',
-                                  'Home Insurance',
-                                  'Seniors Mediplan',
-                                  'Money Market Fund',
-                                  'Personal Accident',
-                                  'Academia',
-                                  'Jipange Plus',
-                                  'Haba Haba na CIC',
-                                  'Smart Saver',
-                                  'Professional Indemnity'
-                                ].map((product) => {
-                                  // Create a hash-friendly id (e.g. easy-bima)
-                                  const hash = product.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-                                  return (
-                                    <li key={product}>
-                                      <Link
-                                        to={`/individual#${hash}`}
-                                        className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block"
-                                        onClick={() => setActiveDropdown(null)}
-                                      >
-                                        {product}
-                                      </Link>
-                                    </li>
-                                  );
-                                })}
-                              </ul>
+                            <ul className="space-y-2">
+                              {[
+                                'Easy Bima',
+                                'Motor Private Insurance',
+                                'Motor Commercial Insurance',
+                                'Home Insurance',
+                                'Seniors Mediplan',
+                                'Money Market Fund',
+                                'Personal Accident',
+                                'Academia',
+                                'Jipange Plus',
+                                'Haba Haba na CIC',
+                                'Smart Saver',
+                                'Professional Indemnity'
+                              ].map((product) => {
+                                const hash = product.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                                return (
+                                  <li key={product}>
+                                    <Link
+                                      to={`/individual#${hash}`}
+                                      className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block"
+                                      onClick={() => setActiveDropdown(null)}
+                                    >
+                                      {product}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
                           </div>
                         </div>
                       </div>
@@ -329,7 +326,7 @@ const Header = () => {
                                 You have worked hard to get here, we are here to make sure that you keep going.
                               </div>
                               <div className="text-[#a51d2d] text-sm font-medium mb-3 text-center">
-                                Need personal assistance? <a href="#" className="underline hover:no-underline">Contact Us</a>
+                                Need personal assistance? <Link to="/contact" className="underline hover:no-underline">Contact Us</Link>
                               </div>
                               <div className="flex space-x-4">
                                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 transition-colors">
@@ -361,9 +358,9 @@ const Header = () => {
                                 'Property Insurance'
                               ].map((product) => (
                                 <li key={product}>
-                                  <a href="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
+                                  <Link to="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
                                     {product}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -394,7 +391,7 @@ const Header = () => {
                                 Let us pull together. In the direction of your success.
                               </div>
                               <div className="text-[#a51d2d] text-sm font-medium mb-3 text-center">
-                                Need personal assistance? <a href="#" className="underline hover:no-underline">Contact Us</a>
+                                Need personal assistance? <Link to="/contact" className="underline hover:no-underline">Contact Us</Link>
                               </div>
                               <div className="flex space-x-4">
                                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 transition-colors">
@@ -425,9 +422,9 @@ const Header = () => {
                                 'CIC Umbrella Retirement Benefits Scheme'
                               ].map((product) => (
                                 <li key={product}>
-                                  <a href="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
+                                  <Link to="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
                                     {product}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -458,7 +455,7 @@ const Header = () => {
                                 We take care of your business, so that you can take care of business.
                               </div>
                               <div className="text-[#a51d2d] text-sm font-medium mb-3 text-center">
-                                Need personal assistance? <a href="#" className="underline hover:no-underline">Contact Us</a>
+                                Need personal assistance? <Link to="/contact" className="underline hover:no-underline">Contact Us</Link>
                               </div>
                               <div className="flex space-x-4">
                                 <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-green-600 transition-colors">
@@ -490,9 +487,9 @@ const Header = () => {
                                 'Property Insurance'
                               ].map((product) => (
                                 <li key={product}>
-                                  <a href="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
+                                  <Link to="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
                                     {product}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -521,9 +518,9 @@ const Header = () => {
                               'Premium Payment'
                             ].map((service) => (
                               <li key={service}>
-                                <a href="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
+                                <Link to="#" className="text-[#a51d2d] font-medium cursor-pointer hover:underline transition-all duration-150 block">
                                   {service}
-                                </a>
+                                </Link>
                               </li>
                             ))}
                           </ul>
